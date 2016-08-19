@@ -10,7 +10,7 @@
 </head>
 <body>
    <center>
-   	<table>
+   	<table border="1">
    	<?php
    	   //for para controlar las filas
    	   $numero =1;
@@ -18,7 +18,8 @@
    	   	  echo "<tr>";
    	   	  //For para controlar las columnas
    	   	  for ($j=0; $j <10 ; $j++) { 
-   	   	  	echo "<th>".$numero."</th>";
+   	   	  	$retVal = (($i%2)==0) ? $color="gray" : $color="white" ;
+   	   	  	echo "<th style='background-color:".$color."'>".$numero."</th>";
    	   	    $numero ++;
    	   	  }
    	   	   echo "</tr>";
