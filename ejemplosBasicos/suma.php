@@ -1,3 +1,9 @@
+<?php 
+/*
+  * Script que suma dos numeros
+  *
+  */
+?>
 <html>
 <head>
 	<title>Suma</title>
