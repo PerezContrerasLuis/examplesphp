@@ -52,7 +52,8 @@ if(isset($_REQUEST['action']))
 	</head>
     <body style="padding:15px;">
 
-        <div class="pure-g">
+        <center>
+            <div class="pure-g">
             <div class="pure-u-1-12">
                 
                 <form action="?action=<?php echo $alm->id > 0 ? 'actualizar' : 'registrar'; ?>" method="post" class="pure-form pure-form-stacked" style="margin-bottom:30px;">
@@ -117,6 +118,7 @@ if(isset($_REQUEST['action']))
               
             </div>
         </div>
+        </center>
 
     </body>
 </html>
