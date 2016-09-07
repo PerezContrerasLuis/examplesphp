@@ -1,0 +1,15 @@
+<?xml version='1.0'  encoding='UTF-8'?>
+<nodos>
+    <item>
+        <title>Título 1</title>
+        <link>Enlace 1</link>
+        <description>Descripcion 1</description>
+        <!-- <media:thumbnail>Thumbnail 1</media:thumbnail>  -->
+   </item>
+    <item>
+        <title>Título 2</title>
+        <link>Enlace 2</link>
+        <description>Descripcion 2</description>
+      <!-- <media:thumbnail>Thumbnail 2</media:thumbnail>  -->
+    </item>
+</nodos>

@@ -1,0 +1,1369 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>WebTursos</title>
+	<atom:link href="http://web.tursos.com/feed/" rel="self" type="application/rss+xml" />
+	<link>http://web.tursos.com</link>
+	<description>Tutoriales de diseño y desarrollo web en español</description>
+	<lastBuildDate>Fri, 16 Jan 2015 04:54:33 +0000</lastBuildDate>
+	<language>es-ES</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.4.1</generator>
+	<item>
+		<title>10 Comandos SQL que te pueden ser de utilidad</title>
+		<link>http://web.tursos.com/10-comandos-sql-que-te-pueden-ser-de-utilidad/</link>
+		<comments>http://web.tursos.com/10-comandos-sql-que-te-pueden-ser-de-utilidad/#respond</comments>
+		<pubDate>Wed, 28 Aug 2013 23:07:23 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Tips]]></category>
+		<category><![CDATA[MySQL]]></category>
+		<category><![CDATA[SQL]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=6688</guid>
+		<description><![CDATA[En este artículo mencionaremos 10 comandos SQL que pueden ser de gran ayuda a todo desarrollador web que empieza en el mundo de las bases de datos.
+]]></description>
+				<content:encoded><![CDATA[<p>En este artículo mencionaremos 10 comandos SQL que pueden ser de gran ayuda a todo desarrollador web que empieza en el mundo de las bases de datos.</p>
+<p>Para nuestros ejemplos usaremos las siguientes tablas:</p>
+<ul>
+<li>Categoría</li>
+<li>Productos</li>
+</ul>
+<figure><img class="alignnone size-full wp-image-6689" alt="Tablas" src="http://web.tursos.com/files/basedatos.jpg" width="560" height="207" /></figure>
+<h2><span>1. </span>SELECT</h2>
+<p>Este comando nos permite traer todos los registros de una tabla. La estructura de este comando es la siguiente:</p>
+<pre class="language-sql"><code>SELECT [nombre de los campos separados por comas] FROM [nombre de la tabla]</code></pre>
+<p><strong>Ejemplo:</strong></p>
+<figure><img class="alignnone size-medium wp-image-6694" alt="SELECT campos" src="http://web.tursos.com/files/selectcampos.jpg" /></figure>
+<p>En el caso deseemos traer todos los campos: </p>
+<pre class="language-sql"><code>SELECT * FROM [nombre de la tabla]</code></pre>
+<p><strong>Ejemplo:</strong></p>
+<figure><img class="alignnone size-medium wp-image-6692" alt="SELECT *" src="http://web.tursos.com/files/all.jpg" /></figure>
+<p>Existen casos donde queremos mostrar registros que cumplan una condición:</p>
+<pre class="language-sql"><code>SELECT [nombre de los campos separados por comas] FROM [nombre de la tabla] WHERE [condición]</code></pre>
+<p><strong>Ejemplo:</strong></p>
+<p>En este caso vamos a mostrar los productos que son de la categoría 2:</p>
+<figure><img class="alignnone size-medium wp-image-6695" alt="SELECT WHERE" src="http://web.tursos.com/files/selectwhere.jpg" srcset="http://web.tursos.com/files/selectwhere-300x183.jpg 300w, http://web.tursos.com/files/selectwhere.jpg 804w" sizes="(max-width: 804px) 100vw, 804px" /></figure>
+<h2><span>2. </span>COUNT</h2>
+<p>En muchos casos debemos contar registros en nuestras tablas. La estructura del comando es:</p>
+<pre class="language-sql"><code>SELECT COUNT([campo a contar o *]) FROM TABLA [WHERE -condición]</code></pre>
+<p><strong>Ejemplo:</strong></p>
+<p>Vamos a contar cuantos productos pertenecen a la categoría 2:</p>
+<figure><img class="alignnone size-medium wp-image-6697" alt="count" src="http://web.tursos.com/files/count.jpg" srcset="http://web.tursos.com/files/count-300x176.jpg 300w, http://web.tursos.com/files/count.jpg 800w" sizes="(max-width: 800px) 100vw, 800px" /></figure>
+<h2><span>3. </span>ORDER BY</h2>
+<p>Este comando nos permite ordenar el resultado de nuestro SELECT por uno o varios campos de la tabla de manera ascendente o descendente.</p>
+<pre class="language-sql"><code>SELECT [campos] FROM [tablas] [WHERE condición] ORDER BY [campos] [DESC o ASC]</code></pre>
+<p>Si deseamos mostrar datos de manera ascendente no es obligatorio poner ASC.</p>
+<p><strong>Ejemplo</strong></p>
+<p>Vamos a ordenar nuestra tabla productos por el campo nombreProducto de manera descendente:</p>
+<figure><img class="alignnone size-medium wp-image-6698" alt="ORDER BY" src="http://web.tursos.com/files/orderby.jpg" srcset="http://web.tursos.com/files/orderby-300x204.jpg 300w, http://web.tursos.com/files/orderby.jpg 812w" sizes="(max-width: 812px) 100vw, 812px" /></figure>
+<p>Ahoro vamos a mostrar los productos ordenados de manera ascendente:</p>
+<figure><img class="alignnone size-medium wp-image-6699" alt="ORDER BY ASC" src="http://web.tursos.com/files/orderbyasc.jpg" /></figure>
+<h2><span>4. </span>GROUP BY</h2>
+<p>Este comando nos permite agrupar resultados de SELECT por uno o varios campos de una tabla:</p>
+<pre class="language-sql"><code>SELECT [campos] FROM [tablas] [WHERE condición] GROUP BY [campos]</code></pre>
+<p><strong>Ejemplo</strong></p>
+<p>Vamos a contar cuantos productos hay por categoría:</p>
+<figure><img class="alignnone size-medium wp-image-6702" alt="GROUP BY" src="http://web.tursos.com/files/groupby.jpg" /></figure>
+<h2><span>5. </span>LIMIT</h2>
+<p>Muchas veces nuestras tablas contendrán miles o millones de registros, no siempre vamos a querer mostrarlos todos.</p>
+<p>LIMIT permite establecer cuantos registros vamos a traer de nuestra base de datos.</p>
+<pre class="language-sql"><code>SELECT [campos] FROM [tablas] [WHERE condición] LIMIT [cantidad]</code></pre>
+<p><strong>Ejemplo:</strong></p>
+<p>Vamos a mostrar solo tres registros de nuestra tabla productos:</p>
+<figure><img class="alignnone size-medium wp-image-6705" alt="LIMIT" src="http://web.tursos.com/files/limit.jpg" srcset="http://web.tursos.com/files/limit-300x203.jpg 300w, http://web.tursos.com/files/limit.jpg 805w" sizes="(max-width: 805px) 100vw, 805px" /></figure>
+<h2><span>6. </span>INSERT</h2>
+<p>Hasta ahora hemos obtenido datos de tablas pero también podemos agregar nuevos registros.</p>
+<pre class="language-sql"><code>INSERT INTO [nombre tabla] ([campos de tabla]) VALUES([valores a agregar])</code></pre>
+<p><strong>Ejemplo:</strong></p>
+<p>Vamos a agregar un nuevo producto:</p>
+<figure><img class="alignnone size-medium wp-image-6709" alt="INSERT" src="http://web.tursos.com/files/insert.jpg" /></figure>
+<h2><span>7. </span>UPDATE</h2>
+<p>Cuando ya hemos insertado un nuevo registro podemos cambiar los valores.</p>
+<pre class="language-sql"><code>UPDATE [nombre tabla] SET [campo1=valor nuevo] [WHERE condición]</code></pre>
+<p><strong>Ejemplo</strong></p>
+<p>Vamos a actualizar el nuevo producto que hemos insertado:</p>
+<figure><img class="alignnone size-medium wp-image-6710" alt="UPDATE" src="http://web.tursos.com/files/update.jpg" /></figure>
+<h2><span>8. </span>DELETE</h2>
+<p>Así como podemos agregar registros también podemos eliminarlos:</p>
+<pre class="language-sql"><code>DELETE FROM [nombre tabla] [WHERE condición]</code></pre>
+<p><strong>Ejemplo</strong></p>
+<p>Vamos a eliminar el nuevo registro:</p>
+<figure><img class="alignnone size-medium wp-image-6711" alt="DELETE" src="http://web.tursos.com/files/delete.jpg" srcset="http://web.tursos.com/files/delete-300x230.jpg 300w, http://web.tursos.com/files/delete.jpg 603w" sizes="(max-width: 603px) 100vw, 603px" /></figure>
+<h2><span>9. </span>ALTER TABLE</h2>
+<p>En el caso se nos haya olvidado agregar una columna al crear la tabla, podemos solucionarlo con el siguiente comando:</p>
+<pre class="language-sql"><code>ALTER TABLE [nombre tabla] ADD [nombre campo] [tipo de dato];</code></pre>
+<p><strong>Ejemplo</strong></p>
+<p>Vamos a agregar una columna a nuestra tabla productos llamada descripción:</p>
+<figure><img class="alignnone size-medium wp-image-6714" alt="ADD COLUMN" src="http://web.tursos.com/files/addcolumn.jpg" /></figure>
+<h2><span>10. </span>DROP TABLE</h2>
+<p>En muchos casos tenemos tablas que no son necesarias, entonces decidimos eliminarlas.</p>
+<pre class="language-sql"><code>DROP TABLE [nombre tabla]</code></pre>
+<p><strong>Ejemplo</strong></p>
+<p>Vamos a eliminar la tabla productos:</p>
+<figure><img class="alignnone size-medium wp-image-6715" alt="DROP TABLE" src="http://web.tursos.com/files/droptable.jpg" srcset="http://web.tursos.com/files/droptable-300x235.jpg 300w, http://web.tursos.com/files/droptable.jpg 610w" sizes="(max-width: 610px) 100vw, 610px" /></figure>
+<p>Todos estos comandos te facilitarán dominar el fascinante mundo de las base de datos, en otros post veremos querys más complejos donde se unen dos o más tablas, operadores y condicionales.</p>
+<p>¡Que la fuerza os acompañe jóvenes padawans!</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/10-comandos-sql-que-te-pueden-ser-de-utilidad/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Como Implementar Sidebars Dinámicos (Widgets) en WordPress</title>
+		<link>http://web.tursos.com/como-implementar-sidebars-dinamicos-widgets-en-wordpress/</link>
+		<comments>http://web.tursos.com/como-implementar-sidebars-dinamicos-widgets-en-wordpress/#comments</comments>
+		<pubDate>Sat, 23 Mar 2013 04:50:39 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Tutoriales]]></category>
+		<category><![CDATA[WordPress]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=6254</guid>
+		<description><![CDATA[En este tutorial aprenderas como implementar Sidebars Dinámicos (Widgets) en tu theme de WordPress.
+]]></description>
+				<content:encoded><![CDATA[<div class='infotuto alone'><ul class='demo'><li><a href="/demo/sidebars/codigo.zip" class="button grayish" target="_blank" title="Descargate el codigo del tutorial"><div class="inner"><span class="entypo">&#11015;</span>Descargar</div></a></li></ul></div>
+<blockquote><p>Los <strong>Widgets</strong> son pedazos de contenido administrables desde el backend (<em>Apariencia &gt; Widgets</em>), estos se almacenan en espacios conocidos como <strong>&#8216;Sidebars Dinámicos&#8217;</strong>.</p></blockquote>
+<p>En este tutorial aprenderas como implementar Sidebars Dinámicos (Widgets) en tu theme de WordPress.</p>
+<h2>Registrando el Sidebar</h2>
+<p>El proceso es sencillo, lo unico que tenemos que hacer es colocar la función <strong><a title="register_sidebar Codex" href="http://codex.wordpress.org/Function_Reference/register_sidebar" target="_blank">register_sidebar()</a></strong> en el fichero functions.php de nuestro theme.</p>
+<p>Esta función acepta como parametro un Array en el cual se especifican los detalles del Sidebar:</p>
+<ul>
+<li><strong>name</strong>: El nombre del Sidebar, por defecto es &#8216;Sidebar&#8217;.</li>
+<li><strong>id</strong>: El id del sidebar (ej: sidebar-derecha), por defecto es el ID numerico auto-generado.</li>
+<li><strong>description</strong>: Texto de descripcion del sidebar a registrar, se muestra en la pagina de Widgets, por defecto esta vacio</li>
+<li><strong>class</strong>: Clase CSS a asignar a los widgets de este Sidebar.</li>
+<li><strong>before_widget</strong>: Código HTML que ira antes de cada widget, por defecto es &lt;li&gt;</li>
+<li><strong>after_widget</strong>: Código HTML que ira después de cada widget, por defecto es &lt;/li&gt;</li>
+<li><strong>before_title</strong>: Código HTML que ira antes del título del Widget, por defecto es &lt;h2&gt;</li>
+<li><strong>after_title</strong>: Código HTML que ira después del título del Widget, por defecto es &lt;/h2&gt;</li>
+</ul>
+<p>Sabiendo esto, procedemos a crear un Sidebar de ejemplo:</p>
+<pre class="language-php"><code>&lt;?php
+register_sidebar( 
+	array(
+  		'name' =&gt; 'Zona de Anuncios',
+  		'id' =&gt; 'ad-zone',
+  		'description' =&gt; 'Aquí irán los anuncios del sitio',
+  		'before_widget' =&gt; '&lt;div class="widget ad"&gt;',
+  		'after_widget'  =&gt; '&lt;/div&gt;',
+  		'before_title' =&gt; '&lt;strong class="adtitle"&gt;',
+  		'after_title' =&gt; '&lt;/strong&gt;'
+  	)
+);</code></pre>
+<p>Con solo ese código, si vamos a Apariencia &gt; Widgets deberíamos ver nuestro Sidebar, el cual podemos empezar a llenar con Widgets:</p>
+<p><img class="aligncenter size-full wp-image-6272" alt="wordpress-sidebars1" src="http://webtursos.s3.amazonaws.com/web/files/wordpress-sidebars1.jpg" width="650" height="210" /></p>
+<h2>Mostrando el Sidebar</h2>
+<p>Para mostrar el Sidebar utilizamos la función <a href="http://codex.wordpress.org/Function_Reference/dynamic_sidebar" title="dynamic_sidebar Codex" target="_blank">dynamic_sidebar()</a>, este lleva un solo parametro en donde debemos indicar que Sidebar mostrar, se pone el id (textual o numérico) del sidebar (en nuestro caso: &#8216;ad-zone&#8217;) si se deja vacío mostrará el primer sidebar registrado.</p>
+<pre class="language-php"><code>&lt;?php dynamic_sidebar( 'ad-zone' ); ?&gt;</code></pre>
+<p>Y esto lo podemos ubicar donde queramos, normalmente se acostumbra a crear un archivo sidebar.php, poner la función allí y luego incluirlo con <a href="http://codex.wordpress.org/Function_Reference/get_sidebar" title="get_sidebar Codex" target="_blank">get_sidebar()</a>.</p>
+<p>Sin embargo los Sidebars en WordPress no siempre son usados como sidebars (<em>literal</em>), sino mas como un area dinámica multiproposito que se puede colocar en cualquier parte, por ejemplo en el Footer o en el Header.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/como-implementar-sidebars-dinamicos-widgets-en-wordpress/feed/</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+		<item>
+		<title>Dotgeek: Hosting Gratuito para Desarrolladores Web</title>
+		<link>http://web.tursos.com/dotgeek-hosting-gratuito-para-desarrolladores-web/</link>
+		<comments>http://web.tursos.com/dotgeek-hosting-gratuito-para-desarrolladores-web/#comments</comments>
+		<pubDate>Thu, 07 Feb 2013 20:42:06 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Articulos]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[Ruby]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=6078</guid>
+		<description><![CDATA[¿Estás aprendiendo Ruby o PHP y necesitas un lugar para hacer tus pruebas? Dotgeek es un hosting gratuito y libre de publicidad para desarrolladores y entusiastas de la Web, el servicio nos brinda soporte para múltiples lenguajes, entre otras cosas.
+]]></description>
+				<content:encoded><![CDATA[<p>¿Estás aprendiendo Ruby o PHP y necesitas un lugar para hacer tus pruebas? <a href="http://1.ai" rel="external nofollow">Dotgeek</a> es un hosting gratuito y libre de publicidad para desarrolladores y entusiastas de la Web, el servicio nos brinda soporte para múltiples lenguajes, entre otras cosas.</p>
+<p><strong>Nota</strong>: El nombre del hosting es Dotgeek.org, pero la URL donde se hacen los registros es <a href="http://1.ai" rel="external nofollow">1.ai</a>, <a href="http://dotgeek.org" rel="external nofollow">dotgeek.org</a> es el foro del hosting.</p>
+<h2>Soporte</h2>
+<p>Los lenguajes/frameworks que soporta dotgeek son:</p>
+<ul>
+<li>PHP 5.3</li>
+<li>Ruby</li>
+<li>Perl</li>
+<li>Camping (Framework de Ruby)</li>
+<li>Sinatra (Framework de Ruby)</li>
+</ul>
+<p>Hay que tener en cuenta que esta lista no va a ser siempre la misma, se esta trabajando para aumentar el soporte a otros lenguajes y frameworks como Python, Rails, etc.</p>
+<h2>Nombre de Dominio y Espacio</h2>
+<p>El nombre de dominio que nos brindan es <strong>tunombre.dotgeek.org</strong> o <strong>tunombre.1.ai</strong>, con lo que respecta al espacio dotgeek nos da 512 MB en un SSD + 512 MB para tu base de datos MySQL.</p>
+<h2>Conexión FTP</h2>
+<p>Para conectarte a dotgeek <strong>necesitas</strong> un cliente FTP que soporte conexiones seguras (SFTP):</p>
+<figure>
+<img src="http://webtursos.s3.amazonaws.com/web/files/conexion-sftp-hosting-gratuito.jpg" alt="" title="conexion-sftp-hosting-gratuito" width="489" height="195" class="aligncenter size-full wp-image-6084" /></p>
+<figcaption>Cliente FTP configurado para hacer conexiones seguras (SFTP)</figcaption>
+</figure>
+<h2>Registro</h2>
+<p>Aqui viene la parte difícil, para tener una cuenta en dotgeek necesitas hacer una solicitud y ser aprobado, les tienes que contar en un texto de 140 caracteres (en inglés) un poco acerca de ti y porque quieres un espacio en dotgeek:</p>
+<figure>
+<a href="http://1.ai" rel="external nofollow"><img src="http://webtursos.s3.amazonaws.com/web/files/solicitud-de-registro-dotgeek.jpg" alt="" title="solicitud-de-registro-dotgeek" width="620" height="496" class="aligncenter size-full wp-image-6083" /></a></p>
+<figcaption>Formulario de registro en <a href="http://1.ai" rel="external nofollow">dotgeek</a></figcaption>
+</figure>
+<p>Esto puede parecer complicado, pero la realidad es que no lo es (mi solicitud me la aprobaron casi al instante), solo se sincero y describe para que vas a usar el hosting.</p>
+<hr>
+<p>Recuerda que este hosting esta pensado para que sea usado unicamente de forma personal y no para usos comerciales, es por esa misma razón que no nos permite utilizar dominios propios.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/dotgeek-hosting-gratuito-para-desarrolladores-web/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Ejemplos Prácticos de Selectores de Atributos CSS</title>
+		<link>http://web.tursos.com/ejemplos-practicos-de-selectores-de-atributos-css/</link>
+		<comments>http://web.tursos.com/ejemplos-practicos-de-selectores-de-atributos-css/#comments</comments>
+		<pubDate>Sun, 03 Feb 2013 08:28:21 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Articulos]]></category>
+		<category><![CDATA[CSS]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=5990</guid>
+		<description><![CDATA[Seguro ya conoces los selectores de atributos de CSS, pero ¿conoces todas las variaciones y que usos prácticos se les puede dar?. En este tutorial veremos todos los tipos de selectores de atributo disponibles y ademas algunos ejemplos aplicables que tal vez te sean de utilidad.
+]]></description>
+				<content:encoded><![CDATA[<div class='infotuto alone'><ul class='demo'><li><a href="http://codepen.io/collection/FkcDo" class="button grayish" target="_blank" title="Ver demonstracion del tutorial"><div class="inner"><span class="entypo">&#59146;</span>Demo</div></a></li></ul></div>
+<p>Seguro ya conoces los selectores de atributos de CSS, pero ¿conoces todas las variaciones y que usos prácticos se les puede dar?. En este tutorial veremos todos los tipos de selectores de atributo disponibles y ademas algunos ejemplos aplicables que tal vez te sean de utilidad.</p>
+<blockquote><p><strong>Nota:</strong> En este tutorial voy a utilizar <a href="http://codepen.io/" rel="nofollow external" target="_blank">CodePen</a> para los ejemplos, para un mejor entendimiento recuerda mirar el codigo en el orden: HTML » CSS » Resultado.</p></blockquote>
+<h2>¿Qué son los selectores de atributos CSS?</h2>
+<p>Son selectores que se basan en el atributo del elemento HTML para seleccionarlo, se usan corchetes [].</p>
+<p>Por ejemplo si tenemos un:</p>
+<pre class="language-markup"><code>&lt;p align="right"&gt;
+
+&lt;/p&gt;</code></pre>
+<p>Podemos seleccionarlo en CSS con:</p>
+<pre class="language-css"><code>p[align="right"]{
+
+}</code></pre>
+<p>Tambien se puede obviar la declaración del tipo de elemento y seleccionar unicamente con el atributo:</p>
+<pre class="language-css"><code>[align="right"]{
+
+}</code></pre>
+<p>Existen una serie de variaciones en las cuales podemos refinar la selección siendo mas especificos, si tienes conocimiento de <em>expresiones regulares</em>, esto te sera facil ya que los términos son similares.</p>
+<h2>Ejemplos</h2>
+<h3>1. <span>[attr<span>=</span>valor]</span></h3>
+<p>El uso mas básico, donde se declara exactamente el atributo y el valor indicado que este debe llevar para que sea seleccionado.</p>
+<h4>Ejemplo:</h4>
+<p>Digamos que tenemos una serie de elementos <span>input</span> y como sabemos, estos tienen que llevar el atributo <span>type</span> en donde se declara que tipo de campo sera, mediante los selectores de atributo podemos estilizar cada uno de los tipos de <span>input</span> individualmente sin declararle clase alguna:</p>
+<pre class="codepen" data-height="300" data-type="html" data-href="bnJaE" data-user="josueochoa" data-safe="true"><code>&lt;input type="text"&gt; &lt;input type="password"&gt; &lt;input type="submit"&gt; &lt;input type="reset"&gt;</code><a href="http://codepen.io/josueochoa/pen/bnJaE">Check out this Pen!</a></pre>
+<h3>2. <span>[attr<span>^=</span>valor]</span></h3>
+<p>Esta variación seleccionará a los elementos que tengan ese atributo y cuyo valor declarado <strong>comience</strong> con lo que se indica.</p>
+<h4>Ejemplo:</h4>
+<p>Un uso práctico seria por ejemplo ponerles iconos a una serie de enlaces a redes sociales, donde detectamos a que red social esta enlazando (el enlace debe empezar con http://face&#8230;) y de acuerdo a ello ponemos el icono respectivo:</p>
+<pre class="codepen" data-height="300" data-type="html" data-href="GkxBw" data-user="josueochoa" data-safe="true"><code>&lt;a href="http://facebook.com/webtursos"&gt;&lt;/a&gt; &lt;a href="http://twitter.com/webtursos"&gt;&lt;/a&gt; &lt;a href="http://youtube.com/webtursos"&gt;&lt;/a&gt;</code><a href="http://codepen.io/josueochoa/pen/GkxBw">Check out this Pen!</a></pre>
+<h3>3. <span>[attr<span>$=</span>valor]</span></h3>
+<p>Este selector es lo invertido al anterior, seleccionará a los elementos que tengan ese atributo y cuyo valor declarado <strong>termine</strong> con lo que se indica.</p>
+<h4>Ejemplo:</h4>
+<p>El uso mas común que se le da a este tipo de selector es para estilizar enlaces de descarga de archivos, en el cual la ruta termina en el formato de archivo (http://&#8230;/documento.doc), el cual usamos para hacer una selección individual:</p>
+<pre class="codepen" data-height="300" data-type="html" data-href="emGtn" data-user="josueochoa" data-safe="true"><code>&lt;a href="archivo.pdf"&gt;Descargar PDF&lt;/a&gt; &lt;a href="archivo.doc"&gt;Descargar DOC&lt;/a&gt; &lt;a href="archivo.xls"&gt;Descargar XLS&lt;/a&gt;</code><a href="http://codepen.io/josueochoa/pen/emGtn">Check out this Pen!</a></pre>
+<h3>4. <span>[attr<span>*=</span>valor]</span></h3>
+<p>Este selector es el que tiene mas alcance, ya que como ven lleva el *, lo que indica que es global, va a seleccionar el elemento que tenga el valor indicado este donde este.</p>
+<h4>Ejemplo:</h4>
+<p>Un ejemplo práctico es cuando trabajamos con los menús de WordPress y queremos aplicar estilo al elemento activo o current, pero WordPress nos añade un montón de clases y al final no logramos lo cometido o terminamos con un CSS muy desordenado, para estos casos podemos usar el selector de atributo global *=:</p>
+<pre class="codepen" data-height="300" data-type="html" data-href="HafvB" data-user="josueochoa" data-safe="true"><code>&lt;ul&gt; &lt;li&gt;&lt;a href=""&gt;Item 1&lt;/a&gt;&lt;/li&gt; &lt;li class="menu-item menu-item-type-taxonomy menu-item-object-category current-category-ancestor current-menu-ancestor current-menu-parent current-category-parent"&gt;&lt;a href=""&gt;Item 2&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;Item 3&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;Item 4&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;</code><a href="http://codepen.io/josueochoa/pen/HafvB">Check out this Pen!</a></pre>
+<h3>5. <span>[attr<span>~=</span>valor]</span></h3>
+<p>Esta variación seleccionará a los elementos que tengan ese atributo y cuyo valor declarado este entre <strong>espacios</strong>.</p>
+<h4>Ejemplo:</h4>
+<p>Esta tipo de selector se usa casi siempre para seleccionar elementos que tengan atributos con multiples valores, tales como el atributo <span>rel</span> de un <span>a</span>, en este ejemplo tendremos un par de parrafos en los cuales habran varios enlaces a los que les pondremos multiples valores <span>rel</span>, pero colorearemos de verde solo los que sean <span>external</span>:</p>
+<pre class="codepen" data-height="300" data-type="html" data-href="EithJ" data-user="josueochoa" data-safe="true"><code>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id &lt;a href="#"&gt;pulvinar&lt;/a&gt; odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam &lt;a href="#" rel="external"&gt;consectetuer&lt;/a&gt;. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim &lt;a href="#" rel="nofollow external"&gt;nibh&lt;/a&gt; eget ipsum. Donec porttitor ligula eu dolor. Maecenas vitae nulla &lt;a href="#" rel="external friend"&gt;consequat&lt;/a&gt; libero cursus venenatis. Nam magna enim, accumsan eu, blandit sed, blandit a, eros. </code><a href="http://codepen.io/josueochoa/pen/EithJ">Check out this Pen!</a></pre>
+<h3>6. <span>[attr<span>|=</span>valor]</span></h3>
+<p>Esta variación seleccionará a los elementos que tengan ese atributo y cuyo valor declarado este entre <strong>guiones</strong>.</p>
+<h4>Ejemplo:</h4>
+<p>Para este selector haremos un ejemplo un poco mas complicado: lo usaremos para hacer una pequeña grilla CSS, en la cual las propiedades se aplicaran a las columnas solo por el hecho de que la clase de estas contenga la palabra grid-, seguido ira el numero que indique el ancho de esa columna:</p>
+<pre class="codepen" data-height="300" data-type="html" data-href="bguCF" data-user="josueochoa" data-safe="true"><code>&lt;div class="wrap"&gt; &lt;div class="grid-8"&gt;&lt;/div&gt; &lt;div class="grid-4"&gt;&lt;/div&gt; &lt;/div&gt;</code><a href="http://codepen.io/josueochoa/pen/bguCF">Check out this Pen!</a></pre>
+<hr />
+<h3>Compatibilidad</h3>
+<p>Cada uno de estos selectores funciona perfectamente en todos los navegadores modernos. Incluso Internet Explorer lo viene soportando a partir de la version 7.</p>
+<p><script async="" src="http://codepen.io/assets/embed/ei.js"></script></p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/ejemplos-practicos-de-selectores-de-atributos-css/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+		<item>
+		<title>Como hacer un Acordeón (accordion) con jQuery y CSS</title>
+		<link>http://web.tursos.com/como-hacer-un-acordeon-accordion-con-jquery-y-css/</link>
+		<comments>http://web.tursos.com/como-hacer-un-acordeon-accordion-con-jquery-y-css/#comments</comments>
+		<pubDate>Wed, 26 Dec 2012 21:37:43 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Tutoriales]]></category>
+		<category><![CDATA[CSS]]></category>
+		<category><![CDATA[jQuery]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=5930</guid>
+		<description><![CDATA[En este tutorial haremos un acordeón vertical usando jQuery con un código bastante minimalista y facil de entender, usaremos CSS para darle decoración y mejorar la experiencia de usuario.
+]]></description>
+				<content:encoded><![CDATA[<div class='infotuto '><ul class='demo'><li><a href="http://demo.tursos.com/web/acordeon/index.html" class="button grayish" target="_blank" title="Ver demonstracion del tutorial"><div class="inner"><span class="entypo">&#59146;</span>Demo</div></a></li><li><a href="http://webtursos.s3.amazonaws.com/web/source/acordeon.zip" class="button grayish" target="_blank" title="Descargate el codigo del tutorial"><div class="inner"><span class="entypo">&#11015;</span>Descargar</div></a></li></ul></div>
+<p>En este tutorial haremos un acordeón vertical usando jQuery con un código bastante minimalista y facil de entender, usaremos CSS para darle decoración y mejorar la experiencia de usuario.</p>
+<h2>Estructura HTML</h2>
+<p>Usaremos con una lista de definición o definition list (dl) para manejar la estructura de los contenidos, una vez comprendas el funcionamiento del código podrás adaptarlo a cualquier otra estructura:</p>
+<pre class="language-markup"><code>&lt;dl&gt;
+    &lt;dt&gt;Titulo 1&lt;/dt&gt;
+    &lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur maxime cupiditate nesciunt molestias itaque vel reiciendis officiis explicabo cum impedit dolorem quod minus beatae architecto necessitatibus sed exercitationem aliquam omnis!&lt;/dd&gt;
+
+    &lt;dt&gt;Titulo 2&lt;/dt&gt;
+    &lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates mollitia quos! Dolor cum vitae aperiam deserunt hic quas quidem qui excepturi minima repudiandae pariatur id sit dignissimos laborum provident velit!&lt;/dd&gt;
+
+    &lt;dt&gt;Titulo 3&lt;/dt&gt;
+    &lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatum expedita sunt voluptatibus ratione assumenda quo animi numquam blanditiis asperiores illo laudantium et quae itaque reiciendis nam ducimus officiis officia?&lt;/dd&gt;
+
+    &lt;dt&gt;Titulo 4&lt;/dt&gt;
+    &lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto obcaecati numquam nemo quasi omnis accusamus illo distinctio doloribus architecto culpa maiores blanditiis laborum accusantium assumenda vero necessitatibus optio? Ipsa perferendis.&lt;/dd&gt;
+
+    &lt;dt&gt;Titulo 5&lt;/dt&gt;
+    &lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto obcaecati numquam nemo quasi omnis accusamus illo distinctio doloribus architecto culpa maiores blanditiis laborum accusantium assumenda vero necessitatibus optio? Ipsa perferendis.&lt;/dd&gt;
+  &lt;/dl&gt;</code></pre>
+<h2>jQuery</h2>
+<p>Luego procedemos a incluir a jQuery y ademas creamos un script en el cual ira nuestro código, si deseas puedes manejarlo en un JS aparte, pero para el ejemplo lo haremos todo junto:</p>
+<pre class="line-numbers language-javascript" data-start="17"><code>&lt;script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+
+&lt;/script&gt;</code></pre>
+<p>Lo primero que haremos sera ocultar todos los &#8216;dd&#8217;, pero no los dd que esten posteriores a un dt con clase .activo, esto nos va a permitir dejar un item abierto por defecto, luego procedemos a detectar cuando &#8216;dt&#8217; sea presionado:</p>
+<pre class="line-numbers language-javascript" data-start="21"><code>$('dl dd').not('dt.activo + dd').hide(); 
+$('dl dt').click(function(){
+
+});</code></pre>
+<p>Dentro del evento de click le pondremos una condición:</p>
+<pre class="line-numbers language-javascript" data-start="22"><code> $('dl dt').click(function(){
+   if ($(this).hasClass('activo')) {
+        $(this).removeClass('activo');
+        $(this).next().slideUp();
+   } else {
+        $('dl dt').removeClass('activo');
+        $(this).addClass('activo');
+        $('dl dd').slideUp();
+        $(this).next().slideDown();
+   }
+});</code></pre>
+<p>(<strong>Linea 23</strong>) Si es que este &#8216;dt&#8217; que acabamos de cliquear tiene la clase <span>.activo</span> (osea si esta abierto) le quitamos la clase <span>.activo</span> (<strong>linea 24</strong>) y hacemos que el elemento que le sigue, que vendría a ser el &#8216;dd&#8217; adyacente (que esta mostrandose), se oculte (<strong>linea 25</strong>).</p>
+<p>En caso contrario (que muy probablemente vendría a ser el estado por defecto) al hacerle clic, lo primero que hará es quitarle <span>.activo</span> a todos los demás &#8216;dt&#8217; (<strong>linea 27</strong>), pero le asignamos <span>.activo</span> al que acabamos de cliquear (<strong>linea 28</strong>), luego ocultamos todos los &#8216;dd&#8217; (<strong>linea 29</strong>) y por ultimo mostramos solo el &#8216;dd&#8217; que le sigue a este &#8216;dt&#8217; (<strong>linea 30</strong>), de esta forma solo se muestra uno a la vez.</p>
+<h2>CSS</h2>
+<p>Hasta allí lo tendríamos completamente funcional, sin embargo la experiencia no es tan agradable, para mejorar esto usaremos algo de CSS:</p>
+<pre class="language-css"><code>*{ font-family: sans-serif; margin: 0;}
+dl{ margin: 60px auto; width: 600px; }
+dt, dd{ padding: 20px; }
+dt{ background: #333333; color: white; border-bottom: 1px solid #141414; border-top: 1px solid #4E4E4E; cursor: pointer; }
+dd{ background: #F5F5F5; line-height: 1.6em; }
+dt.activo, dt:hover{ background: #424242; }</code></pre>
+<p><img class="aligncenter size-full wp-image-5952" title="sinflechs" src="http://webtursos.s3.amazonaws.com/web/files/sinflechs.jpg" alt="" width="600" height="400" /></p>
+<p>Va quedado mejor, pero podemos hacer mas aun, le vamos a añadir unas flechitas con la ayuda de la pseudo-clase :after.</p>
+<pre class="language-css"><code>dt:before{ content: "▸"; margin-right: 10px; }
+dt.activo:before{ content: "▾"; }</code></pre>
+<p>Lo que estamos haciendo aqui es que, por defecto antes de todo <span>dt</span> haya una &#8216;▸&#8217;, pero si este dt esta <span>.activo</span> que esta cambie a &#8216;▾&#8217;.</p>
+<p><img class="aligncenter size-full wp-image-5953" title="conflechas" src="http://webtursos.s3.amazonaws.com/web/files/conflechas.jpg" alt="" width="600" height="400" /></p>
+<h3>Dejar un item activado por defecto</h3>
+<p>Si queremos dejar un item abierto por defecto, simplemente le ponemos al dt la clase activo, ya que al cargar la pagina no va a ocultar los dd que esten posteriores a un dt con clase activo:</p>
+<pre class="language-markup"><code>&lt;dt class="activo"&gt;Titulo 3&lt;/dt&gt;
+&lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatum expedita sunt voluptatibus ratione assumenda quo animi numquam blanditiis asperiores illo laudantium et quae itaque reiciendis nam ducimus officiis officia?&lt;/dd&gt;</code></pre>
+<h2>Código Final</h2>
+<pre class="language-javascript line-numbers"><code>&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;style type="text/css"&gt;
+		*{ font-family: sans-serif; margin: 0;}
+		dl{ margin: 60px auto; width: 600px; }
+		dt, dd{ padding: 20px; }
+		dt{ background: #333333; color: white; border-bottom: 1px solid #141414; border-top: 1px solid #4E4E4E; cursor: pointer; }
+		dd{ background: #F5F5F5; line-height: 1.6em; }
+		dt.activo, dt:hover{ background: #424242; }
+
+		dt:before{ content: "▸"; margin-right: 10px; }
+		dt.activo:before{ content: "▾"; }
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;dl&gt;
+		&lt;dt&gt;Titulo 1&lt;/dt&gt;
+		&lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur maxime cupiditate nesciunt molestias itaque vel reiciendis officiis explicabo cum impedit dolorem quod minus beatae architecto necessitatibus sed exercitationem aliquam omnis!&lt;/dd&gt;
+
+		&lt;dt&gt;Titulo 2&lt;/dt&gt;
+		&lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates mollitia quos! Dolor cum vitae aperiam deserunt hic quas quidem qui excepturi minima repudiandae pariatur id sit dignissimos laborum provident velit!&lt;/dd&gt;
+
+		&lt;dt&gt;Titulo 3&lt;/dt&gt;
+		&lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatum expedita sunt voluptatibus ratione assumenda quo animi numquam blanditiis asperiores illo laudantium et quae itaque reiciendis nam ducimus officiis officia?&lt;/dd&gt;
+
+		&lt;dt&gt;Titulo 4&lt;/dt&gt;
+		&lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto obcaecati numquam nemo quasi omnis accusamus illo distinctio doloribus architecto culpa maiores blanditiis laborum accusantium assumenda vero necessitatibus optio? Ipsa perferendis.&lt;/dd&gt;
+
+		&lt;dt&gt;Titulo 5&lt;/dt&gt;
+		&lt;dd&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto obcaecati numquam nemo quasi omnis accusamus illo distinctio doloribus architecto culpa maiores blanditiis laborum accusantium assumenda vero necessitatibus optio? Ipsa perferendis.&lt;/dd&gt;
+	&lt;/dl&gt;
+	&lt;script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript"&gt;
+	  $('dl dd').not('dt.activo + dd').hide();
+       $('dl dt').click(function(){
+          if ($(this).hasClass('activo')) {
+               $(this).removeClass('activo');
+               $(this).next().slideUp();
+          } else {
+               $('dl dt').removeClass('activo');
+               $(this).addClass('activo');
+               $('dl dd').slideUp();
+               $(this).next().slideDown();
+          }
+       });
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Si tienes alguna duda ponla en los comentarios, puedes ver el resultado final en este <a href="http://demo.tursos.com/web/acordeon/index.html">enlace</a> y/o descargar el código fuente desde <a href="http://webtursos.s3.amazonaws.com/web/source/acordeon.zip">aquí</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/como-hacer-un-acordeon-accordion-con-jquery-y-css/feed/</wfw:commentRss>
+		<slash:comments>23</slash:comments>
+		</item>
+		<item>
+		<title>Como Hacer un Sistema de Encuestas con PHP y MySQL</title>
+		<link>http://web.tursos.com/como-hacer-un-sistema-de-encuestas-con-php-y-mysql/</link>
+		<comments>http://web.tursos.com/como-hacer-un-sistema-de-encuestas-con-php-y-mysql/#comments</comments>
+		<pubDate>Sat, 22 Dec 2012 00:47:23 +0000</pubDate>
+		<dc:creator><![CDATA[Edwind Pineda]]></dc:creator>
+				<category><![CDATA[Tutoriales]]></category>
+		<category><![CDATA[MySQL]]></category>
+		<category><![CDATA[PHP]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=5802</guid>
+		<description><![CDATA[Aprende como hacer un sistema de encuestas con PHP y MySQL usando tablas relacionales.]]></description>
+				<content:encoded><![CDATA[<div class='infotuto '><ul class='demo'><li><a href="http://demo.tursos.com/web/encuestas/index.php" class="button grayish" target="_blank" title="Ver demonstracion del tutorial"><div class="inner"><span class="entypo">&#59146;</span>Demo</div></a></li><li><a href="http://demo.tursos.com/web/encuestas/encuestas.zip" class="button grayish" target="_blank" title="Descargate el codigo del tutorial"><div class="inner"><span class="entypo">&#11015;</span>Descargar</div></a></li></ul></div>
+<p>En este tutorial aprenderas a hacer un sistema de encuestas funcional, práctico y expandible, usaremos PHP y MySQL con tablas relacionales.</p>
+<p>Trabajaremos con 4 ficheros PHP, uno para la conexión a la base de datos (conexion.php), uno para listar las encuestas (index.php), otro para crear nuevas encuestas (agregar.php), el que mostrara los resultados de las encuestas (resultado.php) y por ultimo estilos.css que se encargara de darle algo de estetica pero tambien de una parte muy esencial que es la de mostrar la barra de votaciones.</p>
+<p>Si en ciertas partes el código te resulta muy complejo, lee los comentarios.</p>
+<h2><span>0. </span>estilos.css</h2>
+<pre class="language-css"><code>.barra{
+	background: #ff3019;
+	background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%);
+	background: -webkit-linear-gradient(top, #ff3019 0%,#cf0404 100%);
+	background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
+	clear: both;
+	height: 15px;
+	color: white;
+	font-weight: bold;
+	text-align: right;
+	padding: 6px;
+	border-radius: 4px;
+	max-width: 356px;
+	min-width: 20px;
+}
+
+/* A partir de aqui es solo cosmetico, lo puedes borrar */
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+body{
+	background: #464646;
+}
+a{
+	text-decoration: none;
+	color: red;
+}
+.fr{
+	float: right;
+}
+.fl, .votar{
+	float: left;
+}
+.cf{
+	clear: both;
+}
+.wrap{
+	padding: 25px;
+	margin: 0 auto;
+	width: 385px;
+	background: #F3F3F3;
+	border-radius: 4px;
+	margin-top: 70px;
+	border: 1px solid #E0E0E0;
+}
+h1{
+	margin-bottom: 20px;
+	font-size: 21px;
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 15px;
+	text-align: center;
+}
+form &gt; div{
+	margin-bottom: 20px;
+}
+form .titulo{
+	margin-right: 20px;
+}
+form label{
+	display: block;
+}
+form input[type='text'], select{
+	border: 1px solid #E0E0E0;
+	padding: 6px;
+	resize: none;
+}
+form input[type="submit"]{
+	padding: 8px 16px;
+	background: gray;
+	border: 0;
+	display: block;
+	font-weight: bold;
+	color: white;
+	border-radius: 6px;
+}
+form input[type="submit"]:hover{
+	background: #505050;
+}
+ul.votacion{
+	margin-bottom: 25px;
+	list-style: none;
+}
+.votacion li{
+	padding: 8px;
+	background: #FCFCFC;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+.votacion li:hover{
+	background: white;
+}
+.votacion li a{
+	color: gray;
+	font-weight: bold;
+	font-size: 16px;
+}
+.votacion li a:hover{
+	color: black;
+}
+.votacion li span{
+	margin-left: 10px;
+}
+.votacion .fl{
+	margin-bottom: 5px;
+}
+.volver{
+	display: block;
+	padding-top: 15px;
+	clear: both;
+}
+.resultado{
+	float: left;
+	margin-left: 10px;
+	margin-top: 7px;
+	color: black;
+}</code></pre>
+<h2><span>1. </span>SQL</h2>
+<p>Creamos una tala con el nombre <span>encuestas</span> con los siguientes campos: id, titulo y fecha. Aqui se almacenara los datos las encuestas como el titulo y la fecha que fue creada la encuestas, utilizaremos otra tabla para que almacene las opciones de las encuestas.</p>
+<pre class="language-sql"><code>CREATE TABLE IF NOT EXISTS `encuestas` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`titulo` varchar(50) NOT NULL,
+`fecha` date NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;</code></pre>
+<p>Ahora insertarmos unos datos de ejemplo en la tabla:</p>
+<pre class="language-sql"><code>INSERT INTO `encuestas` (`id`, `titulo`, `fecha`)
+VALUES (NULL ,  'Que os parecen los tutoriales de PHP?',
+'2012-12-15');</code></pre>
+<p>Creamos otra tabla con el nombre <span>opciones</span> con los siguientes campos: id, id_encuesta, nombre y valor.<br />
+El campo de <span>id_encuesta</span> tendrá relación con el campo <span>id</span> de la tabla <span>encuestas</span>, en <span>nombre</span> ira el nombre y valor guardara el numero de votos que tendra la opcion respectiva.</p>
+<pre class="language-sql"><code>CREATE TABLE IF NOT EXISTS `opciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_encuesta` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `valor` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;</code></pre>
+<p>Insertamos datos a la tabla <span>opciones</span>:</p>
+<pre class="language-sql"><code>INSERT INTO  `opciones` (`id` ,`id_encuesta` ,`nombre` ,`valor`)
+VALUES (NULL ,  '1',  'Muy Bueno',  '14')
+, (NULL ,  '1',  'Bueno',  '6')
+, (NULL ,  '1',  'Malo',  '2');</code></pre>
+<p>Fijaos que he definido id_encuesta con 1 y es porque quiero que estas opciones esten relacionadas con la encuestas que creamos anteriormente que llevaba el id de 1.</p>
+<p>Si no entendisteis bien como vamos a trabajar las relaciones de las tablas, esta grafica te aclarará las dudas:</p>
+<figure><img class="aligncenter size-full wp-image-5883" title="sql_diagrama_encuesta" alt="" src="http://webtursos.s3.amazonaws.com/web/files/sql_diagrama_encuesta1.jpg" width="550" height="296" /></figure>
+<h2><span>02.</span> conexion.php</h2>
+<p>El tipico fichero PHP para guardar los datos de la conexión, nada del otro mundo:</p>
+<pre class="language-php"><code>&lt;&#63;php // datos para la conexion a mysql
+define('DB_SERVER','localhost');
+define('DB_NAME','TU BASE DE DATOS');
+define('DB_USER','TU USUARIO');
+define('DB_PASS','TU CLAVE');
+
+$conex = mysql_connect (DB_SERVER,DB_USER,DB_PASS);
+mysql_select_db(DB_NAME,$conex);</code></pre>
+<h2><span>03. </span>index.php</h2>
+<p>Lo primero sera incluir al fichero de conexión, luego haremos una consulta a la base datos para que nos muestren los títulos de la tabla &#8216;encuestas&#8217; los mismos que mostraremos como enlaces hacia las encuestas, estos enlaces llevaran el id de la encuestas en cuestión mediante GET (encuestas.php?id=x).</p>
+<pre class="language-php"><code>&lt;&#63;php
+require('conexion.php');
+$sql = "SELECT * FROM encuestas ORDER BY id DESC";
+$req = mysql_query($sql);
+?&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;Sistema de encuestas&lt;/title&gt;
+	&lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="wrap"&gt;
+    	&lt;h1&gt;Encuestas&lt;/h1&gt;
+    	&lt;ul class="votacion index"&gt;
+		&lt;&#63;php
+			while($result = mysql_fetch_object($req)){
+				echo '&lt;li&gt;&lt;a href="encuesta.php?id='.$result-&gt;id.'"&gt;'.$result-&gt;titulo.'&lt;/a&gt;&lt;/li&gt;';
+			}
+		?&gt;
+		&lt;/ul&gt;
+    	&lt;a href="agregar.php"&gt;+ Agregar nueva encuesta&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Nos debería ir quedando así:</p>
+<figure><img class="aligncenter size-full wp-image-5907" title="encuestas_index" alt="" src="http://webtursos.s3.amazonaws.com/web/files/encuestas_index.jpg" width="685" height="450" /></figure>
+<h2><span>04. </span>encuesta.php</h2>
+<p><strong>Linea 04:</strong> Si no existe la variable de URL se regresara a la pagina principal.<br />
+<strong>Linea 11:</strong> Si le dan a votar (el form de votacion ira abajo) y si han seleccionado una opcion se va a actualizar los datos del campo &#8216;valor&#8217; de la tabla &#8216;opciones&#8217;:</p>
+<pre class="language-php line-numbers" data-line="4,11"><code>&lt;&#63;php
+require('conexion.php');
+        $id = $_GET['id'];
+	if(!isset($_GET['id'])){
+		header('location: index.php');
+	}
+
+	if(isset($_POST['votar']))
+	{
+
+		if(isset($_POST['valor'])){
+			$opciones = $_POST['valor'];
+			$mod = mysql_query("SELECT * FROM opciones WHERE id = ".$opciones);
+			while($result = mysql_fetch_object($mod)){
+				$valor = $result-&gt;valor + 1; // obtenemos el valor de 'valor' y le añadimos 1 unidad
+				mysql_query("UPDATE opciones SET valor =  '".$valor."' WHERE id = ".$opciones); // luego ejecutamos el query SQL
+			}
+			header('location: resultado.php?id='.$id); // Por ultimo lo redireccionamos a la encuestas mostrando los resultados.
+		}
+	}
+?&gt;</code></pre>
+<p>Ahora la parte HTML donde ira el form de votacion, aqui vamos a generar una consulta a la base datos para que se muestren los datos de la tabla &#8216;encuestas&#8217; con relación a la tabla &#8216;opciones&#8217; como radiobuttons, partes de un form:</p>
+<p><strong>Linea 15: </strong>En esta linea haremos un query con INNER JOIN en el cual trabajaremos con las tablas &#8216;encuestas&#8217; y &#8216;opciones&#8217; donde <strong>a</strong> sera encuestas y <strong>b</strong> es opciones, aqui buscaremos filas donde a.id sea igual a b.encuesta_id, el valor de a.id que se comparara sera definido por $id, este valor lo obtuvimos al principio en el primer pedazo de código mediante GET.</p>
+<p><strong>Linea 18 y 27: </strong>Con el resultado del query hacemos un while donde mostraremos el titulo de la encuesta y luego en la linea 48 se muestran cada una de las opciones como input[type=&#8217;radio&#8217;], $aux es una variable auxiliar que nos ayuda a detener el bucle para que ciertos elementos se muestren solo una vez.</p>
+<pre class="language-php line-numbers" data-line="15, 18, 27"><code>&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;Sistema de encuestas&lt;/title&gt;
+	&lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="wrap"&gt;
+
+&lt;form action="" method="post"&gt;
+&lt;&#63;php
+$aux = 0;
+$sql = "SELECT a.titulo as titulo, a.fecha as fecha, b.id as id, b.nombre as nombre, b.valor as valor FROM encuestas a INNER JOIN opciones b ON a.id = b.id_encuesta WHERE a.id = ".$id;
+$req = mysql_query($sql);
+
+while($result = mysql_fetch_object($req)){
+
+	if($aux == 0){
+		echo '&lt;h1&gt;'.$result-&gt;titulo.'&lt;/h1&gt;';
+
+		echo '&lt;ul&gt;';
+		$aux = 1;
+	}
+
+	echo '&lt;li&gt;&lt;input name="valor" type="radio" value="'.$result-&gt;id.'"&gt;&lt;span&gt;'.$result-&gt;nombre.'&lt;/span&gt;&lt;/li&gt;';
+
+}
+	echo '&lt;/ul&gt;';	
+
+	if(!isset($_POST['valor'])){
+		echo "&lt;div class='error'&gt;Selecciona una opcion.&lt;/div&gt;";
+	}
+
+	echo '&lt;input name="votar" type="submit" value="Votar"&gt;';
+	echo '&lt;a href="resultado.php?id='.$id.'" class="resultado"&gt;Ver Resultados&lt;/a&gt;';
+	echo '&lt;a href="index.php" class="volver"&gt;&amp;larr; Volver&lt;/a&gt;';
+
+?&gt;
+
+&lt;/form&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Si todo salió bien, encuesta.php deberia verse asi:</p>
+<figure><img class="aligncenter size-full wp-image-5908" title="encuestas_resultado" alt="" src="http://webtursos.s3.amazonaws.com/web/files/encuestas_encuesta.jpg" width="686" height="550" /></figure>
+<h2><span>05. </span>resultado.php</h2>
+<p>Esta archivo es mas simple, aqui mostraremos los resultados de las encuestas de acuerdo al id obtenido por GET (resultado.php?id=x):<br />
+<strong>Linea 11:</strong> Para obtener el valor usamos SUM() para que nos resulte la suma total del valor en un solo numero:</p>
+<pre class="language-php line-numbers" data-line="11"><code>&lt;&#63;php
+
+require('conexion.php');
+
+if(!isset($_GET['id'])){
+	header('location: index.php');
+}
+
+$suma = 0;
+$id = $_GET['id'];
+$mod = @mysql_query("SELECT SUM(valor) as valor FROM opciones WHERE id_encuesta = ".$id);
+while($result = @mysql_fetch_object($mod)){
+	$suma = $result-&gt;valor;
+}
+
+?&gt;</code></pre>
+<p>Luego mostramos los resultados con el mismo query con INNER JOIN que ya hemos usado anteriormente, esto nos mostrara cada opción en forma de div (.barra) al que le definimos el ancho en porcentaje usando una operación matemática,</p>
+<pre class="language-php line-numbers" data-line="13, 26"><code>&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;Sistema de Encuestas&lt;/title&gt;
+	&lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="wrap"&gt;
+&lt;form action="" method="post"&gt;
+&lt;&#63;php
+$aux = 0;
+$sql = "SELECT a.titulo as titulo, a.fecha as fecha, b.id as id, b.nombre as nombre, b.valor as valor FROM encuestas a INNER JOIN opciones b ON a.id = b.id_encuesta WHERE a.id = ".$id;
+$req = @mysql_query($sql);
+
+while($result = @mysql_fetch_object($req)){
+	if($aux == 0){
+			echo "&lt;h1&gt;".$result-&gt;titulo."&lt;/h1&gt;";
+			echo "&lt;ul class='votacion'&gt;";
+		$aux = 1;
+	}
+	echo '&lt;li&gt;&lt;div class="fl"&gt;'.$result-&gt;nombre.'&lt;/div&gt;&lt;div class="fr"&gt;Votos: '.$result-&gt;valor.'&lt;/div&gt;';
+    if($suma == 0){
+        echo '&lt;div class="barra cero" style="width:0%;"&gt;&lt;/div&gt;&lt;/li&gt;';
+    }else{
+        echo '&lt;div class="barra" style="width:'.($result-&gt;valor*100/$suma).'%;"&gt;'.round($result-&gt;valor*100/$suma).'%&lt;/div&gt;&lt;/li&gt;';
+    }
+
+}
+echo '&lt;/ul&gt;';	
+
+if(isset($aux)){
+	echo '&lt;span class="fr"&gt;Total: '.$suma.'&lt;/span&gt;';
+	echo '&lt;a href="encuesta.php?id='.$id.'"" class="volver"&gt;← Volver&lt;/a&gt;';
+}
+
+?&gt;
+&lt;/ul&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Si llegaste hasta aqui resultado.php debería lucir similar a esto:</p>
+<figure><img class="aligncenter size-full wp-image-5908" title="encuestas_resultado" alt="" src="http://webtursos.s3.amazonaws.com/web/files/encuestas_resultado.jpg" width="686" height="550" /></figure>
+<h2><span>06. </span>agregar.php</h2>
+<p>En este fichero es probablemente el mas complejo de todos, manejaremos el proceso PHP arriba y el formulario abajo, por ello para entender esta parte es necesario ver el código completo (leer comentarios):</p>
+<pre class="language-php"><code>&lt;&#63;php require('conexion.php');
+$cont = 0;
+
+$titulo = ''; if(isset($_POST['titulo'])){ $titulo = trim($_POST['titulo']); } // definimos $titulo para evitar errores, y guardamos su valor por el ingresado.
+
+if(isset($_POST['enviar'])){
+     if($titulo != ""){
+	  	$num = $_POST['opciones']; // este valor lo vamos a obtener de lo que el usuario ingrese como numero de opciones al crear la encuesta
+  		$fecha = date('Y-m-d');
+
+  		$sql= "INSERT INTO `encuestas` (`id` ,`titulo` ,`fecha`) VALUES (NULL ,  '$titulo', '$fecha');"; // si han ingresado si quiera un titulo insertamos esta encuesta en la tabla
+		mysql_query($sql);
+
+		$sql = "SELECT MAX(id) as id FROM encuestas"; // ahora obtenemos el id de la ultima fila,
+                                                      // la que acabamos de ingresar,
+                                                      // esto lo hacemos para poder asociarle las opciones
+		$req = 	mysql_query($sql);
+
+		while($result = mysql_fetch_object($req)){
+			$id_encuesta = $result-&gt;id;	// con el resultado obtenido hacemos un bucle y definimos los resultados como id_encuesta.
+		}
+
+		$sql = "INSERT INTO  `opciones` (`id` ,`id_encuesta` ,`nombre` ,`valor`) VALUES "; // En esta parte estamos armando un query SQL dinamico el cual sera modificado de acuerdo a lo que el usuario ingrese en el formulario.
+		for($i=1;$i&lt;=$num;$i++){
+			$opcnativa = trim($_POST['opc'.$i]); // obtenemos el nombre de cada opcion indivudalmente.
+			if($opcnativa != ""){
+				$sql .= "(NULL ,  '$id_encuesta',  '$opcnativa',  '0')"; // el id de la opcion ira null para que se ponga automaticamente, en id_encuesta pues ira el id de la encuesta que acabamos de crear, en 'nombre' ira el nombre de la opcion y valor ira 0, puesto que es una nueva opcion sin votos, esto se repetira con todas las opciones que el usuario haya definido.
+				$cont++;
+			}
+			if($i == $num){
+				$sql .= ";"; // si es que se llega al final, termina la consulta
+			}else{
+				$sql .= ", "; // sino se pone una , y se continua.
+			}
+		}
+
+		if($cont &lt; 2){ // si el usuario no definio ninguna opcion, se elimina la encuesta recien creada, esto es poco probable que suceda ya que la definicion de opciones la haremos con un select, y aqui se seleccionara el valor de 2 por defecto.
+			$sql = "DELETE FROM `encuestas` WHERE id = ".$id_encuesta;
+			echo "&lt;div class='error'&gt;Tiene que llevar por lo menos 2 opciones.&lt;/div&gt;";
+		}else{
+            header('location: index.php'); // por ultimo si todo salio bien, redireccionamos al index para que el usuario vea su encuesta recien creada.
+        }
+		mysql_query($sql); // y ejecutamos el query
+    }
+}
+?&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;Sistema de Encuestas&lt;/title&gt;
+	&lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="wrap"&gt;
+	&lt;h1&gt;Agregar Encuesta&lt;/h1&gt;
+	&lt;form action="" method="post"&gt;
+
+	&lt;div class="fl titulo"&gt;
+		&lt;label&gt;Titulo:&lt;/label&gt;
+		&lt;input name="titulo" type="text" value="&lt;&#63;php echo $titulo; ?&gt;" size="26"&gt;
+	&lt;/div&gt;
+	&lt;&#63;php
+        // esto es simplemente un formulario, pero aqui hacemos una condicion, identificamos si se ha definido un numero de opciones, si es si hacemos un bucle, si es no mostramos el select para definir un numero de opciones, como es obvio por defecto se mostrara el bucle:
+	if(isset($_POST['opc'])){
+		$num = $_POST['opciones']; // guardamos el valor del numero de opciones
+		for($i=1;$i&lt;=$num;$i++){ // hacemos el bucle mostrando los campos respectivos.
+	?&gt;
+	&lt;div class="cf"&gt;
+		&lt;label&gt;Opcion &lt;&#63;php echo $i; ?&gt;: &lt;/label&gt;
+		&lt;input name="opc&lt;&#63;php echo $i; ?&gt;" type="text" size="43"&gt;
+	&lt;/div&gt;
+	&lt;&#63;php } // aqui termina el bucle ?&gt;
+	&lt;div class="cf"&gt;
+    	&lt;input name="enviar" type="submit" value="Enviar"&gt;
+        &lt;input name="opciones" type="hidden" value="&lt;&#63;php echo $num; // le pasamos el valor de num al proceso del formulario mediante un campo oculto. ?&gt;"&gt;
+        &lt;input name="cont" type="hidden" value="&lt;&#63;php echo cont; ?&gt;"&gt;
+    &lt;/div&gt;
+	&lt;&#63;php }else{ // sino se ha definido nro de opciones: ?&gt;
+	&lt;div class="fl"&gt;
+    	&lt;label&gt;Nº de opciones:&lt;/label&gt;
+    	&lt;select name="opciones"&gt;
+    		&lt;&#63;php for($i=2;$i&lt;=20;$i++){ // esto es un loop simple, solo para ahorrarnos trabajo, este select tendra de 2 a 20 opciones, si deseas cambiarlo lo puedes hacer aqui. ?&gt;
+    		&lt;option value="&lt;&#63;php echo $i; ?&gt;"&gt;&lt;&#63;php echo $i; ?&gt;&lt;/option&gt;
+    		&lt;&#63;php } ?&gt;
+		&lt;/select&gt;
+	&lt;/div&gt;
+
+    &lt;div class="cf"&gt;
+      	&lt;input name="opc" type="submit" value="Continuar"&gt;
+    &lt;/div&gt;
+
+      &lt;&#63;php } // Sino se han definido opciones, que en vez de salir el boton de Enviar, salga uno que sea Continuar. ?&gt;
+    &lt;a href="index.php" class="volver"&gt;← Volver&lt;/a&gt;
+	&lt;/form&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Por ultimo, agregar.php en sus dos fases:</p>
+<figure><img class="aligncenter size-full wp-image-5910" title="encuestas_agregar1" alt="" src="http://webtursos.s3.amazonaws.com/web/files/encuestas_agregar1.jpg" width="686" height="450" /></figure>
+<figure><img class="aligncenter size-full wp-image-5911" title="encuestas_agregar2" alt="" src="http://webtursos.s3.amazonaws.com/web/files/encuestas_agregar2.jpg" width="685" height="550" /></figure>
+<hr />
+<h2>Posibles mejoras</h2>
+<p>Dentro de las posibles mejoras que se le podemos hacer al sistema, esta la creación de nuevas encuestas (agregar.php) detrás de un login, otra adición seria la de impedir votaciones consecutivas bloqueando la IP o por cookies.</p>
+<p>Si no entendiste alguna parte o te sale algún error, házmela saber en los comentarios y recuerda que puedes bajarte el código fuente desde este <a href="http://demo.tursos.com/web/encuestas/encuestas.zip">enlace</a> o verlo en funcionamiento <a href="http://demo.tursos.com/web/encuestas/index.php" target="_blank">aqui</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/como-hacer-un-sistema-de-encuestas-con-php-y-mysql/feed/</wfw:commentRss>
+		<slash:comments>88</slash:comments>
+		</item>
+		<item>
+		<title>Traducir la Función date() de PHP al Español</title>
+		<link>http://web.tursos.com/traducir-la-funcion-date-de-php-al-espanol/</link>
+		<comments>http://web.tursos.com/traducir-la-funcion-date-de-php-al-espanol/#comments</comments>
+		<pubDate>Sat, 10 Nov 2012 08:28:43 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Tips]]></category>
+		<category><![CDATA[PHP]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=5680</guid>
+		<description><![CDATA[En este tutorial veremos como traducir y formatear de forma practica la fecha que nos proporciona la función date() de PHP.
+]]></description>
+				<content:encoded><![CDATA[<div class='infotuto alone'><ul class='demo'><li><a href="/demo/fechaphp/codigo.zip" class="button grayish" target="_blank" title="Descargate el codigo del tutorial"><div class="inner"><span class="entypo">&#11015;</span>Descargar</div></a></li></ul></div>
+<p>En este tutorial veremos como traducir y formatear de forma practica la fecha que nos proporciona la función date() de PHP.</p>
+<p>La función <a href="http://php.net/manual/es/function.date.php" target="_blank">date()</a> de PHP nos sirve para mostrar la fecha actual (obtenida del ordenador del cliente), pero el problema es que esta solo se muestra en inglés, esto no es un problema si queremos que el formato de la fecha sea solo en numeros (10-11-2012), sin embargo en ocasiones queremos mostrarla de forma mas elaborada por ej: Sabado, 10 de Noviembre de 2012, es alli donde viene el problema.</p>
+<p>Para solucionarlo vamos a usar un método que considero es el mas practico y seguro que funcione, lo que haremos sera guardar los valores en variables, pasarlos por una condición y por ultimo reemplazarlos por su valor traducido.</p>
+<p>Dividimos cada elemento de la fecha y lo guardamos en variables:</p>
+<pre class="language-php"><code>$dia=date("l"); // Saturday
+
+$mes=date("F"); // November
+
+$ano=date("Y"); // 2012</code></pre>
+<p>En los comentarios esta lo que resultaria en cada caso (si no entiendes esos parámetros te recomiendo leas la <a href="http://php.net/manual/es/function.date.php" target="_blank">documentación</a>), ahora lo que haremos sera de acuerdo al resultado que obtengamos mediante una condición reemplazar ese valor de la variable:</p>
+<pre class="language-php"><code>$dia=date("l");
+
+if ($dia=="Monday") $dia="Lunes";
+if ($dia=="Tuesday") $dia="Martes";
+if ($dia=="Wednesday") $dia="Miércoles";
+if ($dia=="Thursday") $dia="Jueves";
+if ($dia=="Friday") $dia="Viernes";
+if ($dia=="Saturday") $dia="Sabado";
+if ($dia=="Sunday") $dia="Domingo";
+
+$mes=date("F");
+
+if ($mes=="January") $mes="Enero";
+if ($mes=="February") $mes="Febrero";
+if ($mes=="March") $mes="Marzo";
+if ($mes=="April") $mes="Abril";
+if ($mes=="May") $mes="Mayo";
+if ($mes=="June") $mes="Junio";
+if ($mes=="July") $mes="Julio";
+if ($mes=="August") $mes="Agosto";
+if ($mes=="September") $mes="Setiembre";
+if ($mes=="October") $mes="Octubre";
+if ($mes=="November") $mes="Noviembre";
+if ($mes=="December") $mes="Diciembre";
+
+$ano=date("Y");</code></pre>
+<p>Algo mas que añadir seria una variable mas a la cual llamaremos $dia2 esta almacenara el valor del dia pero en numeros y no sera traducida ya que no es necesario:</p>
+<pre class="language-php"><code>$dia2=date("d");</code></pre>
+<p>Ya teniendo esto podemos armar nuestra fecha como nos plazca:</p>
+<pre class="language-php"><code>echo "$dia, $dia2 de $mes de $ano";</code></pre>
+<p>Lo que resultaria en:</p>
+<p><em>Sábado, 10 de Noviembre de 2012</em></p>
+<p>El mayor inconveniente que le veo a esta solución es el tamaño del código, por eso te recomendaria cuando lo uses guardarlo en un archivo aparte y llamarlo mediante un include o un require.</p>
+<hr>
+<h3>Porque no usar setlocale + strftime</h3>
+<p>El problema de usar este metodo es que setlocale utiliza un recurso del sistema operativo, el cual puede variar de acuerdo al OS que este usando el cliente, por consiguiente la funcion podria no funcionar siempre.</p>
+<hr>
+<p>Espero te haya servido este pequeño tutorial, puedes bajarte el código fuente desde este <a href="/demo/fechaphp/codigo.zip" target="_blank">enlace</a> y no olvides que si tienes alguna pregunta o duda hazmela saber en los comentarios que con gusto te asistiré en lo que pueda.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/traducir-la-funcion-date-de-php-al-espanol/feed/</wfw:commentRss>
+		<slash:comments>8</slash:comments>
+		</item>
+		<item>
+		<title>Como Hacer un Formulario de Contacto IV: Almacenar en Base de Datos MySQL con PHP</title>
+		<link>http://web.tursos.com/como-hacer-un-formulario-de-contacto-iv-almacenar-en-base-de-datos-mysql-con-php/</link>
+		<comments>http://web.tursos.com/como-hacer-un-formulario-de-contacto-iv-almacenar-en-base-de-datos-mysql-con-php/#comments</comments>
+		<pubDate>Tue, 23 Oct 2012 19:24:18 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Tutoriales]]></category>
+		<category><![CDATA[MySQL]]></category>
+		<category><![CDATA[PHP]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=5649</guid>
+		<description><![CDATA[En esta parte veremos como almacenar los valores ingresados por el usuario en nuestro formulario y almacenarlos en una base de datos MySQL usando PHP.]]></description>
+				<content:encoded><![CDATA[<div class='infotuto alone'><ul class='demo'><li><a href="http://webtursos.s3.amazonaws.com/web/source/cf_db.zip" class="button grayish" target="_blank" title="Descargate el codigo del tutorial"><div class="inner"><span class="entypo">&#11015;</span>Descargar</div></a></li></ul></div>
+<div id="serie">
+<ul>
+<li><a title="Como hacer un formulario de contacto I: HTML y CSS" href="http://web.tursos.com/tutoriales/html-css/como-hacer-un-formulario-de-contacto-i-html-y-css" rel="alternate" target="_blank">Como hacer un formulario de contacto I: HTML y CSS</a></li>
+<li><a title="Como hacer un formulario de contacto II: Validar con jQuery" href="http://web.tursos.com/tutoriales/javascript/como-hacer-un-formulario-de-contacto-ii-validar-con-jquery" rel="alternate" target="_blank">Como hacer un formulario de contacto II: Validar con jQuery</a></li>
+<li><a title="Como hacer un formulario de contacto III: Validar y enviar con PHP" href="http://web.tursos.com/tutoriales/php/como-hacer-un-formulario-de-contacto-iii-validar-y-enviar-con-php" rel="alternate" target="_blank">Como hacer un formulario de contacto III: Validar y enviar con PHP</a></li>
+<li class="current"><a title="Como hacer un formulario de contacto IV: Almacenar en base de datos MySQL con PHP" href="http://web.tursos.com/tutoriales/php/como-hacer-un-formulario-de-contacto-iv-almacenar-en-base-de-datos-mysql-con-php" rel="alternate" target="_blank">Como hacer un formulario de contacto IV: Almacenar en base de datos MySQL con PHP</a></li>
+</ul>
+</div>
+<p>En esta parte veremos como almacenar los valores ingresados por el usuario en nuestro formulario y almacenarlos en una base de datos MySQL usando PHP para ello, vamos a utilizar el mismo codigo del <a href="http://web.tursos.com/tutoriales/php/como-hacer-un-formulario-de-contacto-iii-validar-y-enviar-con-php" target="_blank">tutorial anterior</a>.</p>
+<h2><span>1.</span> Antes de empezar</h2>
+<p><strong>Ya que vamos a trabajar con PHP, es necesario que tengas instalado en tu sistema un servidor local que soporte PHP.</strong></p>
+<p>Lo primero que vamos a hacer es crear una tabla con los campos del formulario, si haz modificado el formulario añadiendole o quitandole campos, tendras que hacer lo mismo aqui, el siguiente codigo es un SQL que podemos ejecutar desde phpMyAdmin o ingresarlo manualmente si no disponimos de esa herramienta:</p>
+<pre class="language-sql"><code>CREATE TABLE `cf` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `asunto` varchar(255) NOT NULL,
+  `mensaje` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;</code></pre>
+<p>Le vamos a poner &#8216;cf&#8217; (contact form) a la tabla y definimos los campos, primero id que va a ser la llave primaria y con auto_increment y luego los campos del formulaio.</p>
+<p>Ahora vamos a crear un nuevo archivo donde se van almacenar los datos de conexión a la base de datos, a este le pondremos conexion.php:</p>
+<figure><img class="alignnone size-full wp-image-5652" title="conexionphp" src="http://webtursos.s3.amazonaws.com/web/files/conexionphp.jpg" alt="" width="660" height="211" /></figure>
+<p>El contenido de este archivo tiene que ser asi:</p>
+<pre class="language-php"><code>&lt;?php
+
+$host = 'localhost';
+$usuario = 'root';
+$pass = 'root';
+
+$conn = mysql_connect($host, $usuario, $pass) or die ('Error conectando a la base de datos');
+
+$bdnombre = 'cf';
+mysql_select_db($bdnombre);</code></pre>
+<p>Allí definiremos las credenciales de conexión a MySQL, en caso de trabajar en un servidor local casi siempre son esos (localhost, root, root).</p>
+<h2><span>2.</span> index.php</h2>
+<p>Abrimos este archivo y modificamos la parte de PHP, lo primero sera incluir a conexion.php, en esta ocasion vamos a usar require, ya que es necesario que ese archivo este presente:</p>
+<pre class="language-php line-numbers" data-line="2"><code>&lt;?php
+        require("conexion.php");
+
+        if(isset($_POST['boton'])){
+            if($_POST['nombre'] == ''){
+                $error1 = '&lt;span class="error"&gt;Ingrese su nombre&lt;/span&gt;';
+            }else if($_POST['email'] == '' or !preg_match("/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/",$_POST['email'])){
+                $error2 = '&lt;span class="error"&gt;Ingrese un email correcto&lt;/span&gt;';
+            }else if($_POST['asunto'] == ''){
+                $error3 = '&lt;span class="error"&gt;Ingrese un asunto&lt;/span&gt;';
+            }else if($_POST['mensaje'] == ''){
+                $error4 = '&lt;span class="error"&gt;Ingrese un mensaje&lt;/span&gt;';
+            }else{
+                $dest = "tu@email.com"; //Email de destino
+                $nombre = $_POST['nombre'];
+                $email = $_POST['email'];
+                $asunto = $_POST['asunto']; //Asunto
+                $cuerpo = $_POST['mensaje']; //Cuerpo del mensaje
+                //Cabeceras del correo
+                $headers = "From: $nombre <$email>\r\n"; //Quien envia?
+                $headers .= "X-Mailer: PHP5\n";
+                $headers .= 'MIME-Version: 1.0' . "\n";
+                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; //
+
+                if(mail($dest,$asunto,$cuerpo,$headers)){
+                    $result = '&lt;div class="result_ok"&gt;Email enviado correctamente &lt;img src="http://web.tursos.com/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley"&gt; &lt;/div&gt;';
+                    // si el envio fue exitoso reseteamos lo que el usuario escribio:
+                    $_POST['nombre'] = '';
+                    $_POST['email'] = '';
+                    $_POST['asunto'] = '';
+                    $_POST['mensaje'] = '';
+
+                }else{
+                    $result = '&lt;div class="result_fail"&gt;Hubo un error al enviar el mensaje &lt;img src="http://web.tursos.com/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley"&gt; &lt;/div&gt;';
+
+                }
+            }
+        }
+    ?&gt;</code></pre>
+<p>Ahora nos movemos hasta la linea 34 luego de la parte donde se hace la condicional si envio o no el correo, alli añadimos un salto de linea y ponemos dos lineas en una se va a guardar la consulta SQL que se va ejecutar y la otra va a ir la funcion que la ejecute:</p>
+<pre class="language-php line-numbers" data-start="25" data-line="3, 4"><code>if(mail($dest,$asunto,$cuerpo,$headers)){
+
+$sql = "INSERT INTO `cf` (`nombre`,`email`,`asunto`,`mensaje`) VALUES ('{$_POST['nombre']}','{$_POST['email']}','{$_POST['asunto']}','{$_POST['mensaje']}')"; 
+mysql_query($sql) or die(mysql_error()); 
+
+$result = '&lt;div class="result_ok"&gt;Email enviado correctamente :)&lt;/div&gt;';    
+// si el envio fue exitoso reseteamos lo que el usuario escribio:
+$_POST['nombre'] = '';
+$_POST['email'] = '';
+$_POST['asunto'] = '';
+$_POST['mensaje'] = '';
+
+}else{
+    $result = '&lt;div class="result_fail"&gt;Hubo un error al enviar el mensaje :(&lt;/div&gt;';   
+}</code></code></pre>
+<p>Y con eso ya tendríamos nuestro formulario funcionando, recuerda que si modificaste los campos haz de hacerlo tambien en la consulta, por ejemplo:</p>
+<pre class="language-php"><code>$sql = "INSERT INTO `cf` (`nombre`,`email`,`asunto`,`mensaje`,`campo_z`,`campo_x`,`campo_y`) 
+VALUES ('{$_POST['nombre']}','{$_POST['email']}','{$_POST['asunto']}','{$_POST['mensaje']}','{$_POST['campo_z']}','{$_POST['campo_x']}','{$_POST['campo_y']}')";</code></pre>
+<p>O en caso tengas el los valores guardados/concatenados en variables:</p>
+<pre class="language-php"><code>$sql = "INSERT INTO `cf` (`nombre`,`email`,`asunto`,`mensaje`) 
+VALUES ('$nombre','$email','$asunto','$mensaje','$body')";</code></pre>
+<h2><span>3. </span>Mejoras de seguridad</h2>
+<p>Como vamos a trabajar con bases de datos es recomendable asegurarnos que no nos inyecten el formulario, para eso vamos a usar <a href="http://php.net/manual/es/function.mysql-real-escape-string.php" target="_blank">mysql_real_escape_string</a> antes de la consulta mediante un foreach, de esta forma lo hara en todas las variables POST que se hayan ingresado:</p>
+<pre class="language-php line-numbers" data-start="25" data-line="3,4,5"><code>if(mail($dest,$asunto,$cuerpo,$headers)){
+
+                    foreach($_POST AS $key =&gt; $value) { 
+                        $_POST[$key] = mysql_real_escape_string($value); 
+                    } 
+
+                    $sql = "INSERT INTO `cf` (`nombre`,`email`,`asunto`,`mensaje`) VALUES ('{$_POST['nombre']}','{$_POST['email']}','{$_POST['asunto']}','{$_POST['mensaje']}')"; 
+                    mysql_query($sql) or die(mysql_error()); 
+
+                    $result = '&lt;div class="result_ok"&gt;Email enviado correctamente :)&lt;/div&gt;';    
+                    // si el envio fue exitoso reseteamos lo que el usuario escribio:
+                    $_POST['nombre'] = '';
+                    $_POST['email'] = '';
+                    $_POST['asunto'] = '';
+                    $_POST['mensaje'] = '';
+
+                }else{
+                    $result = '&lt;div class="result_fail"&gt;Hubo un error al enviar el mensaje :(&lt;/div&gt;';   
+                }</code></pre>
+<h2><span>4. </span>Código Final</h2>
+<pre class="language-php"><code> &lt;?php
+    require('conexion.php'); 
+
+    if(isset($_POST['boton'])){
+        if($_POST['nombre'] == ''){
+            $error1 = '&lt;span class="error"&gt;Ingrese su nombre&lt;/span&gt;';
+        }else if($_POST['email'] == '' or !preg_match("/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/",$_POST['email'])){
+            $error2 = '&lt;span class="error"&gt;Ingrese un email correcto&lt;/span&gt;';
+        }else if($_POST['asunto'] == ''){
+            $error3 = '&lt;span class="error"&gt;Ingrese un asunto&lt;/span&gt;';
+        }else if($_POST['mensaje'] == ''){
+            $error4 = '&lt;span class="error"&gt;Ingrese un mensaje&lt;/span&gt;';
+        }else{
+            $dest = "tu@email.com"; //Email de destino
+            $nombre = $_POST['nombre'];
+            $email = $_POST['email'];
+            $asunto = $_POST['asunto']; //Asunto
+            $cuerpo = $_POST['mensaje']; //Cuerpo del mensaje
+            //Cabeceras del correo
+            $headers = "From: $nombre <$email>\r\n"; //Quien envia?
+            $headers .= "X-Mailer: PHP5\n";
+            $headers .= 'MIME-Version: 1.0' . "\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; //
+
+            if(mail($dest,$asunto,$cuerpo,$headers)){
+
+                foreach($_POST AS $key =&gt; $value) {
+                    $_POST[$key] = mysql_real_escape_string($value);
+                } 
+
+                $sql = "INSERT INTO `cf` (`nombre`,`email`,`asunto`,`mensaje`) VALUES ('{$_POST['nombre']}','{$_POST['email']}','{$_POST['asunto']}','{$_POST['mensaje']}')";
+                mysql_query($sql) or die(mysql_error()); 
+
+                $result = '&lt;div class="result_ok"&gt;Email enviado correctamente &lt;img src="http://web.tursos.com/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley"&gt; &lt;/div&gt;';
+                // si el envio fue exitoso reseteamos lo que el usuario escribio:
+                $_POST['nombre'] = '';
+                $_POST['email'] = '';
+                $_POST['asunto'] = '';
+                $_POST['mensaje'] = '';
+
+            }else{
+                $result = '&lt;div class="result_fail"&gt;Hubo un error al enviar el mensaje &lt;img src="http://web.tursos.com/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley"&gt; &lt;/div&gt;';
+            }
+        }
+    }
+?&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Contacto&lt;/title&gt;
+        &lt;link rel='stylesheet' href='estilos.css'&gt;
+        &lt;script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'&gt;&lt;/script&gt;
+        &lt;script src='funciones.js'&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form class='contacto' method='POST' action=''&gt;
+            &lt;div&gt;&lt;label&gt;Tu Nombre:&lt;/label&gt;&lt;input type='text' class='nombre' name='nombre' value='&lt;?php echo $_POST['nombre']; ?&gt;'&gt;&lt;?php echo $error1 ?&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;label&gt;Tu Email:&lt;/label&gt;&lt;input type='text' class='email' name='email' value='&lt;?php echo $_POST['email']; ?&gt;'&gt;&lt;?php echo $error2 ?&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;label&gt;Asunto:&lt;/label&gt;&lt;input type='text' class='asunto' name='asunto' value='&lt;?php echo $_POST['asunto']; ?&gt;'&gt;&lt;?php echo $error3 ?&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;label&gt;Mensaje:&lt;/label&gt;&lt;textarea rows='6' class='mensaje' name='mensaje'&gt;&lt;?php echo $_POST['mensaje']; ?&gt;&lt;/textarea&gt;&lt;?php echo $error4 ?&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;input type='submit' value='Envia Mensaje' class='boton' name='boton'&gt;&lt;/div&gt;
+            &lt;?php echo $result; ?&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Con eso hemos terminado esta ultima parte del formulario (por ahora), recuerda que puedes descargarte el código fuente en este <a href="http://webtursos.s3.amazonaws.com/web/source/cf_db.zip">enlace</a>.</p>
+<p>Si no entendiste una parte o tienes alguna duda, házmela saber en los comentarios.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/como-hacer-un-formulario-de-contacto-iv-almacenar-en-base-de-datos-mysql-con-php/feed/</wfw:commentRss>
+		<slash:comments>90</slash:comments>
+		</item>
+		<item>
+		<title>10 Técnicas y Ejemplos de Animación con jQuery</title>
+		<link>http://web.tursos.com/10-tecnicas-y-ejemplos-de-animacion-con-jquery/</link>
+		<comments>http://web.tursos.com/10-tecnicas-y-ejemplos-de-animacion-con-jquery/#comments</comments>
+		<pubDate>Mon, 07 May 2012 02:46:23 +0000</pubDate>
+		<dc:creator><![CDATA[Josue Ochoa]]></dc:creator>
+				<category><![CDATA[Articulos]]></category>
+		<category><![CDATA[jQuery]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=5561</guid>
+		<description><![CDATA[Estos son 10 de los mejores tutoriales de jQuery acerca de técnicas y efectos de animación hechos usando la mencionada libreria y con ayuda de algunas propiedades de CSS3.]]></description>
+				<content:encoded><![CDATA[<p>Estos son 10 de los mejores tutoriales de jQuery acerca de técnicas y efectos de animación hechos usando la mencionada libreria y con ayuda de algunas propiedades de CSS3, todos los tutoriales incluyen demo.</p>
+<h3>1. <a target="_blank" rel="nofollow" href="http://snook.ca/archives/javascript/jquery-bg-image-animations/">Animar la propiedad background-image con jQuery</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://snook.ca/technical/jquery-bg/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo1.jpg" alt="" title="jquery-ejemplo1" width="550" height="204" class="alignnone size-full wp-image-5568" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://snook.ca/technical/jquery-bg/">Demo</a></div>
+</div>
+<h3>2. <a target="_blank" rel="nofollow" href="http://tympanus.net/codrops/2012/03/15/parallax-content-slider-with-css3-and-jquery/">Hacer un Slider con efecto parallax con jQuery y CSS3</a></h3>
+<div class="imgcenter">
+<atarget="_blank" rel="nofollow" href="http://tympanus.net/Development/ParallaxContentSlider/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo2.jpg" alt="" title="jquery-ejemplo2" width="550" height="299" class="alignnone size-full wp-image-5569" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://tympanus.net/Development/ParallaxContentSlider/">Demo</a></div>
+</div>
+<h3>3. <a target="_blank" rel="nofollow" href="http://css-tricks.com/organic-tabs/">Tabs organicos con jQuery</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://css-tricks.com/examples/OrganicTabs/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo3.jpg" alt="" title="jquery-ejemplo3" width="550" height="240" class="alignnone size-full wp-image-5570" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://css-tricks.com/examples/OrganicTabs/">Demo</a></div>
+</div>
+<h3>4. <a target="_blank" rel="nofollow" href="http://tympanus.net/codrops/2012/02/06/3d-gallery-with-css3-and-jquery/">Hacer una slider 3D con jQuery</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://tympanus.net/Development/3DGallery/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo4.jpg" alt="" title="jquery-ejemplo4" width="550" height="299" class="alignnone size-full wp-image-5571" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://tympanus.net/Development/3DGallery/">Demo</a></div>
+</div>
+<h3>5. <a target="_blank" rel="nofollow" href="http://css-tricks.com/jquery-robot/">Como hacer un robot animado con jQuery</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://robot.anthonycalzadilla.com/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo5.jpg" alt="" title="jquery-ejemplo5" width="550" height="281" class="alignnone size-full wp-image-5572" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://robot.anthonycalzadilla.com/">Demo</a></div>
+</div>
+<h3>6. <a target="_blank" rel="nofollow" href="http://jqueryfordesigners.com/slider-gallery/">Galeria con Slide hecha con jQuery</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://jqueryfordesigners.com/slider-gallery/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo6.jpg" alt="" title="jquery-ejemplo6" width="550" height="165" class="alignnone size-full wp-image-5573" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://jqueryfordesigners.com/slider-gallery/">Demo</a></div>
+</div>
+<h3>7. <a target="_blank" rel="nofollow" href="http://tympanus.net/codrops/2011/12/14/item-blur-effect-with-css3-and-jquery/">Efecto Blur hecho con jQuery</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://tympanus.net/Tutorials/ItemBlur/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo7.jpg" alt="" title="jquery-ejemplo7" width="550" height="299" class="alignnone size-full wp-image-5574" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://tympanus.net/Tutorials/ItemBlur/">Demo</a></div>
+</div>
+<h3>8. <a target="_blank" rel="nofollow" href="http://tutorialzine.com/2012/02/apple-like-login-form/">Hacer un formulario de Login animado similar al de Apple</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://demo.tutorialzine.com/2012/02/apple-like-login-form/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo8.jpg" alt="" title="jquery-ejemplo8" width="550" height="220" class="alignnone size-full wp-image-5575" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://demo.tutorialzine.com/2012/02/apple-like-login-form/">Demo</a></div>
+</div>
+<h3>9. <a target="_blank" rel="nofollow" href="http://tympanus.net/codrops/2011/11/22/hover-and-click-trigger-circular-elements/">Efectos hover en elementos circulares</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://tympanus.net/TipsTricks/HoverClickTriggerCircle/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo9.jpg" alt="" title="jquery-ejemplo9" width="550" height="299" class="alignnone size-full wp-image-5576" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://tympanus.net/TipsTricks/HoverClickTriggerCircle/">Demo</a></div>
+</div>
+<h3>10. <a target="_blank" rel="nofollow" href="http://tutorialzine.com/2011/07/bubble-slideshow-jquery-css/">Slider con efecto de burbuja hecho con jQuery y CSS</a></h3>
+<div class="imgcenter">
+<a target="_blank" rel="nofollow" href="http://demo.tutorialzine.com/2011/07/bubble-slideshow-jquery-css/"><img src="http://webtursos.s3.amazonaws.com/web/files/jquery-ejemplo10.jpg" alt="" title="jquery-ejemplo10" width="550" height="302" class="alignnone size-full wp-image-5577" /></a></p>
+<div class="links"><a target="_blank" rel="nofollow" href="http://demo.tutorialzine.com/2011/07/bubble-slideshow-jquery-css/">Demo</a></div>
+</div>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/10-tecnicas-y-ejemplos-de-animacion-con-jquery/feed/</wfw:commentRss>
+		<slash:comments>19</slash:comments>
+		</item>
+		<item>
+		<title>Como Hacer un Sistema de Registro de Usuarios en PHP y MySQL</title>
+		<link>http://web.tursos.com/como-hacer-un-sistema-de-registro-de-usuarios-en-php-mysql/</link>
+		<comments>http://web.tursos.com/como-hacer-un-sistema-de-registro-de-usuarios-en-php-mysql/#comments</comments>
+		<pubDate>Mon, 26 Mar 2012 18:54:59 +0000</pubDate>
+		<dc:creator><![CDATA[Edwind Pineda]]></dc:creator>
+				<category><![CDATA[Tutoriales]]></category>
+		<category><![CDATA[MySQL]]></category>
+		<category><![CDATA[PHP]]></category>
+
+		<guid isPermaLink="false">http://web.tursos.com/?p=5500</guid>
+		<description><![CDATA[En este tutorial desarrollaremos y explicaremos un sistema de registro de usuarios, este tutorial es una continuación de este <a href="http://web.tursos.com/tutoriales/php/como-hacer-un-sistema-de-login-de-usuarios-en-php-con-mysql">otro</a> donde vimos como crear un sistema de login de usuarios.
+]]></description>
+				<content:encoded><![CDATA[<div class='infotuto '><ul class='demo'><li><a href="http://demo.tursos.com/web/registro/index.php" class="button grayish" target="_blank" title="Ver demonstracion del tutorial"><div class="inner"><span class="entypo">&#59146;</span>Demo</div></a></li><li><a href="http://demo.tursos.com/web/registro/registro.rar" class="button grayish" target="_blank" title="Descargate el codigo del tutorial"><div class="inner"><span class="entypo">&#11015;</span>Descargar</div></a></li></ul></div>
+<div id="serie">
+<ul>
+<li class="current"><a title="Como hacer un Sistema de Registro de usuarios en PHP con MySQL" href="http://web.tursos.com/tutoriales/php/como-hacer-un-sistema-de-registro-de-usuarios-en-php-con-mysql">Como hacer un Sistema de Registro de usuarios en PHP con MySQL</a></li>
+<li><a title="Como hacer un Sistema de Login de usuarios en PHP con MySQL" href="http://web.tursos.com/tutoriales/php/como-hacer-un-sistema-de-login-de-usuarios-en-php-con-mysql">Como hacer un Sistema de Login de usuarios en PHP con MySQL</a></li>
+</ul>
+</div>
+<p>En este tutorial desarrollaremos y explicaremos un sistema de registro de usuarios, este tutorial es una continuación de este <a href="http://web.tursos.com/tutoriales/php/como-hacer-un-sistema-de-login-de-usuarios-en-php-con-mysql">otro</a> donde vimos como crear un sistema de login de usuarios.</p>
+<h2><span>1.</span> Crear la tabla en MySQL</h2>
+<p>Vamos a comenzar preparando una tabla en nuestra base de datos, la cual almacenara la información de los usuarios, para crear la tabla simplemente copia y ejecuta la siguiente consulta SQL:</p>
+<pre class="brush:sql">CREATE TABLE `usuarios` (
+  `idusuario` INT(11) NOT NULL AUTO_INCREMENT,
+  `usuario` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(10) NOT NULL,
+  PRIMARY KEY  (`idusuario`)
+)</pre>
+<h2><span>2.</span> Conectando a MySQL en PHP</h2>
+<p>Ya una vez que tengamos la estructura de nuestra tabla, creamos un archivo llamado <span>conexion.php</span>.</p>
+<pre class="brush:php">&lt;?php
+// datos para la coneccion a mysql
+define('DB_SERVER','localhost');
+define('DB_NAME','TU_BASE_DE_DATOS');
+define('DB_USER','TU_USUARIO');
+define('DB_PASS','TU_CLAVE');</pre>
+<p>La funcion <span>define</span> como su nombre lo dice, se usa para definir una constante nominada, que nos permite almacenar valores escalares(string, integer, float, boolean y nulos).</p>
+<pre class="brush:php">$con = mysql_connect(DB_SERVER,DB_USER,DB_PASS);
+mysql_select_db(DB_NAME,$con);
+?&gt;</pre>
+<p>La función de <span>mysql_connect</span> nos servira para abrir una conexión al servidor de MySQL usando los 3 parámetros que declaramos anteriormente. Luego <span>mysql_select_db</span> selecciona la base de datos usando 2 parámetros, el nombre de la base de datos y la conexión a usar.</p>
+<h3>Código completo</h3>
+<pre class="brush:php">&lt;?php
+// datos para la conexion a mysql
+define('DB_SERVER','localhost');
+define('DB_NAME','TU_BASE_DE_DATOS');
+define('DB_USER','TU_USUARIO');
+define('DB_PASS','TU_CLAVE');
+$con = mysql_connect(DB_SERVER,DB_USER,DB_PASS);
+mysql_select_db(DB_NAME,$con);
+?&gt;</pre>
+<h2><span>4.</span> index.php</h2>
+<p>Ahora pasamos el archivo <span>index.php</span>, el cual contendrá el formulario de registro y al mismo tiempo el mensaje de &#8220;fue registrado correctamente&#8221; o &#8220;faltan llenar campos&#8221;.</p>
+<pre class="brush:php">&lt;?php
+session_start();
+include_once "conexion.php";</pre>
+<p><span>session_start()</span> crea una sesión para ser usada mediante una petición GET o POST, o pasado por una cookie y la sentencia <span>include_once</span> es la usaremos para incluir el archivo de conexión a la base de datos que creamos anteriormente.</p>
+<form class="registro" action="" method="post">
+<div><label>Usuario:</label> <input type="text" name="usuario" /></div>
+<div><label>Clave:</label> <input type="password" name="password" /></div>
+<div><label>Repetir Clave:</label> <input type="password" name="repassword" /></div>
+<div><input type="submit" name="enviar" value="Registrar" /></div>
+</form>
+<p>Creamos el formulario con el campo de Usuario que se llamara <span>$_POST[&#8216;usuario&#8217;]</span> y 2 campos para la clave y uno mas para confirmar si escribió bien la clave, se llamaran <span>$_POST[&#8216;password&#8217;]</span> y <span>$_POST[&#8216;repassword&#8217;]</span> respectivamente, procedemos a escribir el codigo que procesara y validara lo que el usuario ingrese:</p>
+<pre class="brush:php;highlight:[1,3,11,15,21,23,27]">if(isset($_POST['enviar']))
+{
+	if($_POST['usuario'] == '' or $_POST['password'] == '' or $_POST['repassword'] == '')
+	{
+		echo 'Por favor llene todos los campos.';
+	}
+	else
+	{	
+		$sql = 'SELECT * FROM usuarios';
+		$rec = mysql_query($sql);
+		$verificar_usuario = 0;
+
+		while($result = mysql_fetch_object($rec))
+		{
+			if($result-&gt;usuario == $_POST['usuario'])
+			{
+				$verificar_usuario = 1;
+			}
+		}
+
+		if($verificar_usuario)
+		{
+			if($_POST['password'] == $_POST['repassword'])
+			{
+				$usuario = $_POST['usuario'];
+				$password = $_POST['password'];
+				$sql = "INSERT INTO usuarios (usuario,password) VALUES ('$usuario','$password')";
+				mysql_query($sql);
+
+				echo 'Usted se ha registrado correctamente.';	
+			}
+			else
+			{
+				echo 'Las claves no son iguales, intente nuevamente.';	
+			}
+		}
+		else
+		{
+			echo 'Este usuario ya ha sido registrado anteriormente.';	
+		}
+	}
+}</pre>
+<ul>
+<li><strong>Linea 1:</strong> La primera condición es para saber cuando el formulario haya sido enviado.</li>
+<li><strong>Linea 3:</strong> Si los campos están vacíos muestra el siguiente mensaje, caso contrario sigue el siguiente bloque de código.</li>
+<li><strong>Linea 11, 15 y 21:</strong> Creamos la variable <span>$verificar_usuario</span> que empieza con un valor de 0, pero si la condición de la linea 15 resulta verdadera, entonces la variable toma el valor de 1 que quiere decir que ese nombre de usuario ya existe por lo tanto no se puede registrar.</li>
+<li><strong>Linea 23:</strong> Si los campos son iguales, continua el registro o caso contrario saldrá un mensaje de error.</li>
+<li><strong>Linea 27:</strong> Se insertan los datos a la base de datos, el usuario es registrado con exito y sale el mensaje correspondiente.</li>
+</ul>
+<h3>Decoración opcional con CSS</h3>
+<p>Esta parte es algo de CSS opcional ya que no influye en nada en el funcionamiento del sistema, es unicamente decorativa:</p>
+<pre class="brush:css">		*{
+			font-size: 14px;
+			font-family: sans-serif;
+		}
+		form.registro{
+		    background: none repeat scroll 0 0 #F1F1F1;
+		    border: 1px solid #DDDDDD;
+		    margin: 0 auto;
+		    padding: 20px;
+		    width: 278px;
+		}
+		form.registro div {
+		    margin-bottom: 15px;
+		    overflow: hidden;
+		}
+		form.registro div label {
+		    display: block;
+		    float: left;
+		    line-height: 25px;
+		}
+		form.registro div input[type="text"], form.registro div input[type="password"] {
+		    border: 1px solid #DCDCDC;
+		    float: right;
+		    padding: 4px;
+		}
+		form.registro div input[type="submit"] {
+		    background: none repeat scroll 0 0 #DEDEDE;
+		    border: 1px solid #C6C6C6;
+		    float: right;
+		    font-weight: bold;
+		    padding: 4px 20px;
+		}
+		.error{
+			color: red;
+		    font-weight: bold;
+		    margin: 10px;
+		    text-align: center;
+		}</pre>
+<p>Y con esto terminamos el nuestro sistema de registro en PHP, recuerda que puedes probar el resultado final en esta <a href="http://demo.tursos.com/web/registro/index.php" target="_blank">dirección</a> o bajarte el código fuente desde <a href="http://demo.tursos.com/web/registro/registro.rar" target="_blank">aqui</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://web.tursos.com/como-hacer-un-sistema-de-registro-de-usuarios-en-php-mysql/feed/</wfw:commentRss>
+		<slash:comments>71</slash:comments>
+		</item>
+	</channel>
+</rss>

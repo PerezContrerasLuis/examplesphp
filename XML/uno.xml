@@ -1,0 +1,12 @@
+
+<?xml version='1.0'  encoding='UTF-8'?>
+<nodo_padre>
+   <nodo_hijo>
+      <valor>valor1</valor>
+   </nodo_hijo>
+   <nodo_hijo>
+      <valor>valor2</valor>
+      <valor>valor3</valor>
+      <valor>valor4</valor>
+   </nodo_hijo>
+</nodo_padre>
