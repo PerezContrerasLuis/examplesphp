@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>practicas JQeury</title>
+		
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="datepicker/css/datepicker.css">
+<link rel="stylesheet" type="text/css" href="datepicker/css/bootstrap-timepicker.min.css">
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="datepicker/js/bootstrap-timepicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//$('#dpd1').datepicker();
+	 $('#datetimepicker12').timepicker();
+	var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+ 
+var checkin = $('#dpd1').datepicker({
+  onRender: function(date) {
+    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+  }
+});
+});
+</script>
+	</head>
+	<body>
+        <div class="row ">
+        	<div class="col-md-8">
+        		<form>
+				  <div class="form-group">
+				    <th>Check in: <input type="text" class="span2" value="" id="dpd1"></th>
+				  </div>
+				  <div class="form-group">
+				    <th>Check in: <input type="text" class="span2" value="" id="datetimepicker12"></th>
+				  </div>
+
+				  <button type="submit" class="btn btn-default">Submit</button>
+				</form>
+        	</div>
+        </div>
+        
+	</body>
+</html>
