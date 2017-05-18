@@ -1,0 +1,8 @@
+Requerimientos
+Una empresa que realiza encuestas necesita implementar un sistema que cumpla con los siguientes requerimientos:
+1. La empresa registra primero a las personas que van a contestar la encuesta
+2. Posteriormente se le asigna una encuesta a la persona; existe una encuesta para cada sexo.
+3. La encuesta está compuesta por varias preguntas
+4. Se requiere saber en todo momento cuales preguntas fueron respondidas
+5. Y si estas fueron correctas o no
+6. Finalmente, tener un resumen del resultado de cada encuesta.
