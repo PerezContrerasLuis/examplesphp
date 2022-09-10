@@ -1,1 +1,1 @@
-Programación de PHP a través de ejemplos.
+PHP a travï¿½s de ejemplos.
