@@ -14,14 +14,14 @@ echo "\n";
 
 $testObject = new Arreglo();
 
-$scoresOne = $testObject->add($scores);
-print_r($scoresOne);
+$scores = $testObject->add($scores);
+print_r($scores);
 
-$scoresTwo = $testObject->insert($scores, 30, 2);
-print_r($scoresTwo);
+$scores = $testObject->insert($scores, 30, 2);
+print_r($scores);
 
-$scoresThre = $testObject->remove($scores, 2);
-print_r($scoresThre);
+$scores = $testObject->remove($scores, 2);
+print_r($scores);
 
 class Arreglo
 {
@@ -34,7 +34,7 @@ class Arreglo
 
 
     function insert($array, $score, $index)
-    {
+    {   
         $newArray = array();
         for ($i = 0; $i < count($array); $i++) {
             if ($i === $index) {
