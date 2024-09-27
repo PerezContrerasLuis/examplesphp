@@ -67,6 +67,35 @@ class ListaEnlazada {
         $anterior->siguiente = $nodoActual->siguiente;
     }
 
+    // Método para eliminar un nodo específico
+    public function remove($dato) {
+        // Si la lista está vacía
+        if ($this->cabeza === null) {
+            echo "La lista está vacía.\n";
+            return;
+        }
+
+        // Si el nodo a eliminar es la cabeza de la lista
+        if ($this->cabeza->dato == $dato) {
+            $this->cabeza = $this->cabeza->siguiente;
+            return;
+        }
+
+        // Recorrer la lista buscando el nodo a eliminar
+        $nodoActual = $this->cabeza;
+        while ($nodoActual->siguiente !== null) {
+            if ($nodoActual->siguiente->dato == $dato) {
+                // Eliminar el nodo ajustando los enlaces
+                $nodoActual->siguiente = $nodoActual->siguiente->siguiente;
+                return;
+            }
+            $nodoActual = $nodoActual->siguiente;
+        }
+
+        // Si no se encontró el nodo
+        echo "El nodo con dato $dato no fue encontrado en la lista.\n";
+    }
+
     // Método para mostrar la lista enlazada
     public function mostrarLista() {
         $nodoActual = $this->cabeza;
@@ -86,5 +115,8 @@ $lista->agregarNodo(3);
 $lista->mostrarLista();
 
 $lista->deleteIndex(1);  // Elimina el nodo en el índice 1 (valor 2)
+$lista->mostrarLista();  // Muestra la lista después de eliminar el nodo
+
+$lista->remove(3);       // Elimina el nodo con valor 2
 $lista->mostrarLista();  // Muestra la lista después de eliminar el nodo
 ?>
