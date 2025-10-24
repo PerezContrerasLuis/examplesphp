@@ -177,6 +177,16 @@ Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/p
     └── Twing.php 					   ← Esta clase simula twing
 
 
+Composer + autoloading PSR-4
+1.-Se crea archivo composer.json 
+2.-Se ejecuta: composer dump-autoload
+3.-Composer crea carpeta vendor 
+4.-Se remplasan todos los require_once por :  require_once __DIR__ . '/vendor/autoload.php';
+
+
+
+
+
 Forma de ejecutar : MacBookAir:~/Proyectos/examplesphp/ejemplos/POO/Patrones/Creacionales/AbstractFactory$ php index.php 
 
 Resultado : 
