@@ -8,12 +8,13 @@ class PHPTemplateRenderer implements TemplateRender
 {
     public function render(string $templateString, array $arguments = []): string
     {
-        extract($arguments);
-        ob_start();
-        eval('?>'.$templateString.'<?php');
-        $result = ob_get_contents();
-        ob_end_clean();
+        $replaced = $templateString;
 
-        return $result;
+        foreach ($arguments as $key => $value) {
+            $replaced = str_replace("{{" . $key . "}}", $value, $replaced);
+            $replaced = str_replace("<?= $" . $key . " ?>", $value, $replaced);
+        }
+
+        return $replaced;
     }
 }

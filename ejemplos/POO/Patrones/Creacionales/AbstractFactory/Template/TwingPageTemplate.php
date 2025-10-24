@@ -12,7 +12,7 @@ class TwingPageTemplate extends BasePageTemplate
         return <<<HTML
         <div class="page">
             $renderedTitle
-            <article class="content"><?= \$content ?></article>
+            <article class="content">{{content}}</article>
         </div>
         HTML;
     }

@@ -6,11 +6,13 @@ class   Twing
 {
     public static function render(string $templateString, array $arguments = []): string
     {
-        // Renderizado simulado: reemplazo simple tipo Twig ({{ variable }})
+        // Simula reemplazo de estilo Twig
+        $replaced = $templateString;
+
         foreach ($arguments as $key => $value) {
-            $templateString = str_replace('{{ ' . $key . ' }}', $value, $templateString);
+            $replaced = str_replace('{{' . $key . '}}', $value, $replaced);
         }
 
-        return $templateString;
+        return $replaced;
     }
 }

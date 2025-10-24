@@ -11,7 +11,7 @@ $page = new Page('Sample page', 'This is the body.');
 echo "Testing actual rendering with the PHPTemplate factory:\n";
 echo $page->render(new PHPTemplateFactory());
 
-echo "\t\t";
+echo "\n\n";
 
-echo "Testing actual rendering with the PHPTemplate factory:\n";
+echo "Testing actual rendering with the TwigTemplate factory:\n";
 echo $page->render(new TwigTemplateFactory());
