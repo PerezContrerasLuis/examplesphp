@@ -149,6 +149,9 @@ Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/p
 
 
 
+## 📁 Estructura del proyecto
+
+```bash
 /AbstractFactory
 │
 ├── Client/
@@ -181,6 +184,7 @@ Ejemplo tomado de https://refactoring.guru/es/design-patterns/abstract-factory/p
 │
 ├── index.php                         # Archivo de prueba
 └── README.md                         # Este archivo
+```
 
 
 Composer + autoloading PSR-4
@@ -282,9 +286,6 @@ Testing actual rendering with the PHPTemplate factory:
     <h1>Sample page</h1>
     <article class="content">This is the body.</article>
 </div>
-
-
-
 
 
 
