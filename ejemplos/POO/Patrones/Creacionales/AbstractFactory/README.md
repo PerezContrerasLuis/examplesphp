@@ -49,14 +49,14 @@ Los productos que queremos que nuestras fábricas creen son:
 	•	TemplateRenderer: renderizador.
 
 Por lo tanto, creamos una interfaz para cada uno:
-
+```bash
 Template/
 │   ├── TitleTemplate.php     ← Interfaz
 │   └── PageTemplate.php      ← Interfaz
 Renderer/
 │   └── TemplateRenderer.php  ← Interfaz
 
-
+```
 ⸻
 
 2. Crear las clases concretas de productos
@@ -64,13 +64,14 @@ Renderer/
 Como tenemos dos motores de plantillas, necesitaremos implementaciones concretas para cada uno.
 Además, creamos una clase abstracta para evitar repetir código en las clases de página.
 
+```bash
 Template/
 │   ├── TwigTitleTemplate.php           ← Implementa TitleTemplate
 │   ├── TwigPageTemplate.php            ← Extiende BasePageTemplate
 │   ├── PHPTemplateTitleTemplate.php    ← Implementa TitleTemplate
 │   ├── PHPTemplatePageTemplate.php     ← Extiende BasePageTemplate
 │   └── BasePageTemplate.php            ← Clase abstracta común
-
+```
 ¿Por qué se usa BasePageTemplate?
 Para evitar duplicar lógica que comparten TwigPageTemplate y PHPTemplatePageTemplate, como la propiedad $titleTemplate.
 
@@ -79,12 +80,12 @@ Para evitar duplicar lógica que comparten TwigPageTemplate y PHPTemplatePageTem
 3. Crear las clases de renderizado concretas
 
 Cada motor tiene su propia clase que implementa TemplateRenderer y sabe cómo renderizar:
-
+```bash
 Renderer/
 │   ├── TwigRenderer.php            ← Implementa TemplateRenderer
 │   └── PHPTemplateRenderer.php     ← Implementa TemplateRenderer
 
-
+```
 ⸻
 
 4. Crear la fábrica abstracta
@@ -104,10 +105,11 @@ Métodos:
 
 Estas clases implementan TemplateFactory y se encargan de crear productos específicos para cada motor:
 
+```bash
 Factory/
 │   ├── TwigTemplateFactory.php        ← Implementa TemplateFactory
 │   └── PHPTemplateFactory.php         ← Implementa TemplateFactory
-
+```
 Cada una sabe cómo construir títulos, páginas y renderizadores según su motor.
 
 ⸻
@@ -281,6 +283,7 @@ El string HTML con los valores reemplazados es retornado desde PHPTemplateRender
 
 🧪 Resultado esperado
 
+```bash
 Testing actual rendering with the PHPTemplate factory:
 <div class="page">
     <h1>Sample page</h1>
@@ -304,5 +307,6 @@ Testing actual rendering with the PHPTemplate factory:
 <div class="page">
     <h1> {{Title}} </h1>
     <article class="content"><?= $content ?></article>
-</div>MacBookAir:~/Proyectos/examplesphp/ejemplos/POO/Patrones/Creacionales/AbstractFactory$ 
+</div>
+```
 
