@@ -62,15 +62,15 @@ Hoy se carga la configuración desde un archivo PHP con un array. Esto podría e
 	•	Separar mejor los entornos (dev, prod, test)
 	•	No depender de un “driver por defecto”, sino de un sistema más flexible
 
-1. Agregar paginación y validaciones
+#### 1. Agregar paginación y validaciones
 
 Funciones comunes como paginación, validación de formularios, middleware o manejo de errores pueden añadirse poco a poco.
 
-2. Cargar controladores automáticamente desde el nombre de clase
+#### 2. Cargar controladores automáticamente desde el nombre de clase
 
 El ruteo puede mejorar soportando rutas “limpias” tipo /usuarios/crear, y dejando de usar $_GET.
 
-3. Usar un ORM o Active Record propio
+#### 3. Usar un ORM o Active Record propio
 
 Actualmente, el sistema de acceso a datos se basa en métodos genéricos. Se podría desarrollar un mini ORM o implementar un sistema estilo Eloquent (como Laravel), que permita usar algo como:
 
@@ -83,14 +83,14 @@ Es una clase base que representa una tabla de base de datos como un objeto PHP, 
 
 ⸻
 
-1. ¿Cómo se integra?
+3.1. ¿Cómo se integra?
 
 Se integra reemplazando o extendiendo tu clase EntidadBase actual. La idea es crear una clase Model o ActiveRecord que:
 	•	Sepa a qué tabla pertenece automáticamente.
 	•	Genere SQL dinámico con métodos como find(), where(), all(), save().
 	•	Use PDO internamente como ya lo haces.
 
-2. ¿Es una librería externa?
+3.2. ¿Es una librería externa?
 
 No. En este caso crearemos nuestro propio mini ORM sin usar librerías externas. Pero si quisieras usar uno externo, puedes usar:
 	•	Idiorm (ligero): https://github.com/j4mie/idiorm
@@ -100,7 +100,7 @@ Pero lo que queremos es hacerlo desde cero, y eso es excelente para aprender.
 
 ⸻
 
-🧱 3. Implementación Paso a Paso
+🧱 3.3. Implementación Paso a Paso
 
 🗂️ Archivo: Core/ActiveRecord.php
 
@@ -190,7 +190,7 @@ abstract class ActiveRecord
 ``` 
 ⸻
 
-📦 Ejemplo de uso en el modelo
+3.4. 📦 Ejemplo de uso en el modelo
 
 🗂️ Archivo: Models/Usuario.php
 ``` bash
