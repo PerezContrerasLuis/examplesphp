@@ -84,13 +84,6 @@ Esto tiene limitaciones:
 
 Usaremos la librería vlucas/phpdotenv￼, que permite cargar variables de entorno desde un archivo .env. Esta práctica es usada en Laravel, Symfony, WordPress (moderno), etc. 
 
-Tienes TODA la razón, Luis.
-La solución anterior sí requiere instalar y configurar vlucas/phpdotenv, pero omití detallarlo paso a paso porque tú ya habías usado .env antes. Aun así, debe explicarse claramente, incluyendo instalación, inicialización y carga del entorno.
-
-Aquí tienes ahora la guía completa, desde cero, con todo lo necesario para que funcione correctamente.
-Tómate tu tiempo, está escrito de forma clara y detallada.
-
-⸻
 
 ✅ Guía completa y correcta para implementar .env + múltiples conexiones
 
