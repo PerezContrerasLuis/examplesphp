@@ -55,12 +55,248 @@ Este es un mini framework hecho en PHP con enfoque en la orientación a objetos 
 
 Aquí algunas ideas para seguir mejorando este framework:
 
-0. Mejorar la gestión de configuración
+#### 0. Mejorar la gestión de configuración
 
 Hoy se carga la configuración desde un archivo PHP con un array. Esto podría evolucionar a usar:
 	•	Archivos .env con vlucas/phpdotenv￼
 	•	Separar mejor los entornos (dev, prod, test)
 	•	No depender de un “driver por defecto”, sino de un sistema más flexible
+✅ ¿Qué problemas resuelve esta mejora?
+
+Hoy estás usando un archivo config/database.php que retorna un array como este:
+
+``` php
+return [
+    'default' => 'mysql',
+    'connections' => [...]
+];
+
+```
+Esto tiene limitaciones:
+	•	Está estático y acoplado.
+	•	No permite entornos dinámicos (dev, prod, test).
+	•	No permite que el usuario cambie de conexión fácilmente.
+	•	No puedes usar variables de entorno ni proteger credenciales correctamente.
+
+⸻
+
+🧪 Solución profesional: .env + vlucas/phpdotenv
+
+Usaremos la librería vlucas/phpdotenv￼, que permite cargar variables de entorno desde un archivo .env. Esta práctica es usada en Laravel, Symfony, WordPress (moderno), etc. 
+
+Tienes TODA la razón, Luis.
+La solución anterior sí requiere instalar y configurar vlucas/phpdotenv, pero omití detallarlo paso a paso porque tú ya habías usado .env antes. Aun así, debe explicarse claramente, incluyendo instalación, inicialización y carga del entorno.
+
+Aquí tienes ahora la guía completa, desde cero, con todo lo necesario para que funcione correctamente.
+Tómate tu tiempo, está escrito de forma clara y detallada.
+
+⸻
+
+✅ Guía completa y correcta para implementar .env + múltiples conexiones
+
+📌 Paso 0 — Instalar vlucas/phpdotenv
+
+En tu proyecto, abre la terminal dentro de la carpeta:
+
+/miniframework/
+
+y ejecuta:
+```bash
+composer require vlucas/phpdotenv
+```
+
+Esto instalará el cargador de variables de entorno.
+
+⸻
+
+📌 Paso 1 — Crear archivo .env
+
+En la raíz del proyecto:
+
+miniframework/.env
+
+Contenido:
+```php
+APP_ENV=dev
+
+# Conexión activa
+DB_CONNECTION=mysql
+
+# Configuración MySQL
+DB_MYSQL_DRIVER=mysql
+DB_MYSQL_HOST=localhost
+DB_MYSQL_PORT=3306
+DB_MYSQL_DATABASE=mini_framework
+DB_MYSQL_USERNAME=root
+DB_MYSQL_PASSWORD=root
+
+# Configuración PostgreSQL
+DB_PGSQL_DRIVER=pgsql
+DB_PGSQL_HOST=localhost
+DB_PGSQL_PORT=5432
+DB_PGSQL_DATABASE=mini_pg
+DB_PGSQL_USERNAME=pg_user
+DB_PGSQL_PASSWORD=pg_pass
+
+# Configuración SQL Server
+DB_SQLSRV_DRIVER=sqlsrv
+DB_SQLSRV_HOST=localhost
+DB_SQLSRV_PORT=1433
+DB_SQLSRV_DATABASE=mini_sqlsrv
+DB_SQLSRV_USERNAME=sa
+DB_SQLSRV_PASSWORD=sqlsrv_pass
+
+```
+⸻
+
+📌 Paso 2 — Crear bootstrap/init.php para cargar el entorno
+
+Crea:
+
+/bootstrap/init.php
+
+Contenido:
+```php
+<?php
+
+use Dotenv\Dotenv;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+```
+Esto carga todas las variables de .env en $_ENV.
+
+⸻
+
+📌 Paso 3 — Modificar index.php para cargar el entorno antes de todo
+
+Archivo:
+
+index.php
+
+Contenido actualizado:
+```php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/bootstrap/init.php';
+
+spl_autoload_register(function ($class) {
+    $classPath = str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
+    if (file_exists($classPath)) {
+        require_once $classPath;
+    }
+});
+
+\Core\Route::handleRequest();
+```
+✔ Aquí aseguramos que .env se cargue antes de usar Connection o cualquier modelo.
+
+⸻
+
+📌 Paso 4 — Crear clase DatabaseConfig
+
+🗂 Core/DatabaseConfig.php
+```php
+<?php
+
+namespace Core;
+
+class DatabaseConfig
+{
+    public static function getActiveConnectionConfig(): array
+    {
+        $driver = $_ENV['DB_CONNECTION']; // mysql | pgsql | sqlsrv
+        $prefix = strtoupper($driver);
+
+        return [
+            'driver'   => $_ENV["DB_{$prefix}_DRIVER"] ?? '',
+            'host'     => $_ENV["DB_{$prefix}_HOST"] ?? '',
+            'port'     => $_ENV["DB_{$prefix}_PORT"] ?? '',
+            'database' => $_ENV["DB_{$prefix}_DATABASE"] ?? '',
+            'username' => $_ENV["DB_{$prefix}_USERNAME"] ?? '',
+            'password' => $_ENV["DB_{$prefix}_PASSWORD"] ?? '',
+        ];
+    }
+}
+
+```
+⸻
+
+📌 Paso 5 — Modificar Connection.php para soportar múltiples motores
+
+🗂 Core/Connection.php
+```php
+<?php
+
+namespace Core;
+
+use PDO;
+use PDOException;
+
+class Connection
+{
+    private $connection;
+
+    public function __construct()
+    {
+        $config = DatabaseConfig::getActiveConnectionConfig();
+
+        $driver = $config['driver'];
+        $host   = $config['host'];
+        $port   = $config['port'];
+        $db     = $config['database'];
+        $user   = $config['username'];
+        $pass   = $config['password'];
+
+        if ($driver === 'mysql') {
+            $dsn = "mysql:host={$host};port={$port};dbname={$db};charset=utf8mb4";
+        } elseif ($driver === 'pgsql') {
+            $dsn = "pgsql:host={$host};port={$port};dbname={$db}";
+        } elseif ($driver === 'sqlsrv') {
+            $dsn = "sqlsrv:Server={$host},{$port};Database={$db}";
+        } else {
+            throw new \Exception("Driver no soportado: {$driver}");
+        }
+
+        try {
+            $this->connection = new PDO($dsn, $user, $pass);
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Error de conexión: " . $e->getMessage());
+        }
+    }
+
+    public function getConnection(): PDO
+    {
+        return $this->connection;
+    }
+}
+```
+
+⸻
+
+🎉 Resultado final
+
+Ahora tu framework:
+
+✔ Carga el entorno desde .env
+✔ Soporta múltiples conexiones con prefijos (DB_MYSQL_, DB_PGSQL_, …)
+✔ No usa arrays PHP estáticos
+✔ No necesita definir un “default” dentro del código
+✔ Selecciona la conexión según:
+
+```php
+DB_CONNECTION=mysql
+```
+✔ Cambias de motor sin tocar código → igual que Laravel
+
+⸻
+
+
+
 
 #### 1. Agregar paginación y validaciones
 
