@@ -9,8 +9,9 @@ class UsuarioController
     public function index()
     {
         $usuario = new Usuario();
-        $usuarios = $usuario->getAll();
-        require_once 'views/usuarios/index.php';
+        // Ahora incluimos las direcciones
+        $usuarios = $usuario->getAllWithDirecciones();
+        $this->render('usuarios/index', compact('usuarios'));
     }
 
     public function store()
@@ -28,6 +29,12 @@ class UsuarioController
             header('Location: index.php?controller=UsuarioController&action=index');
             exit();
         }
+    }
+
+    private function render($view, $data = [])
+    {
+        extract($data);
+        require_once "views/{$view}.php";
     }
 
     public function dashboard(){

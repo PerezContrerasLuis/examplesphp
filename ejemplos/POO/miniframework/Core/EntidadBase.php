@@ -19,6 +19,13 @@ abstract class EntidadBase
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function find($id)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function save(array $data)
     {   
          //$data = ["id"=>"1","nombre"=>"luis","email"=>"luis@gmail.com"]

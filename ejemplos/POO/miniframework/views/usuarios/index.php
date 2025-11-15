@@ -6,7 +6,7 @@
     <title>Lista de Usuarios</title>
 </head>
 <body>
-<h1>Lista de Usuarios</h1>
+<h1>Lista de usuarios registrados</h1>
 <table border="1" cellpadding="10" cellspacing="0">
     <thead>
     <tr>
@@ -19,13 +19,26 @@
     </thead>
     <tbody>
     <?php if (!empty($usuarios)): ?>
-        <?php foreach ($usuarios as $usuario): ?>
+        <?php foreach ($usuarios as $u): ?>
             <tr>
-                <td><?= htmlspecialchars($usuario['id']) ?></td>
-                <td><?= htmlspecialchars($usuario['nombre']) ?></td>
-                <td><?= htmlspecialchars($usuario['apellido']) ?></td>
-                <td><?= htmlspecialchars($usuario['email']) ?></td>
-                <td><?= $usuario['activo'] ? 'Sí' : 'No' ?></td>
+                <td><?= $u['id'] ?></td>
+                <td><?= $u['nombre'] ?></td>
+                <td><?= $u['apellido'] ?></td>
+                <td><?= $u['email'] ?></td>
+                <td><?= $u['activo'] ? 'Sí' : 'No' ?></td>
+                <td>
+                    <?php if (!empty($u['direcciones'])): ?>
+                        <ul>
+                            <?php foreach ($u['direcciones'] as $dir): ?>
+                                <li>
+                                    <?= $dir['calle'] . " # " . $dir['numero'] . ", " . $dir['ciudad'] ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else: ?>
+                        Sin dirección
+                    <?php endif; ?>
+                </td>
             </tr>
         <?php endforeach; ?>
     <?php else: ?>

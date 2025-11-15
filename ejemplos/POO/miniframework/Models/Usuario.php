@@ -45,4 +45,24 @@ class Usuario extends EntidadBase
         ];
         return $this->save($data);
     }
+
+    public function getAllWithDirecciones()
+    {
+        /*
+        $usuarios = $this->getAll();
+        $direccionModel = new \Models\Direccion();
+        foreach ($usuarios as &$usuario) {
+            $usuario['direcciones'] = $direccionModel->getByUserId($usuario['id']);
+        }
+        return $usuarios; 
+        */
+
+         $sql = "SELECT u.*, d.pais, d.estado, d.ciudad, d.calle, d.numero
+            FROM usuarios u
+            LEFT JOIN direcciones d ON u.id = d.iduser";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
